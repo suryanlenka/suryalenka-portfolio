@@ -1,0 +1,178 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const certifications = [
+  {
+    provider: "Amazon Web Services",
+    title: "AWS Certified Solutions Architect",
+    description:
+      "Cloud architecture knowledge covering secure, scalable, reliable, and cost-aware solution design on AWS.",
+    tag: "Cloud Architecture",
+  },
+  {
+    provider: "Microsoft",
+    title: "Microsoft Azure Administrator",
+    description:
+      "Knowledge of Azure administration, cloud resources, identity, networking, monitoring, and operational management.",
+    tag: "Azure Administration",
+  },
+];
+---
+
+<BaseLayout
+  title="Certifications | Surya Lenka"
+  description="Professional certifications held by Surya Lenka in AWS cloud architecture and Microsoft Azure administration."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Profile</p>
+      <h1>Cloud credentials that strengthen enterprise technology expertise.</h1>
+      <p class="intro">
+        My certifications support my broader experience across communication
+        platforms, cloud services, infrastructure, automation, and technical leadership.
+      </p>
+    </div>
+  </section>
+
+  <section class="certifications-section">
+    <div class="shell">
+      <div class="certification-grid">
+        {certifications.map((certification) => (
+          <article class="certification-card">
+            <div class="card-top">
+              <p>{certification.provider}</p>
+              <span>{certification.tag}</span>
+            </div>
+
+            <h2>{certification.title}</h2>
+            <p>{certification.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .shell {
+    width: min(980px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .page-hero {
+    padding: 92px 0 70px;
+    background:
+      radial-gradient(circle at 82% 14%, rgba(196, 230, 208, 0.72), transparent 23rem),
+      var(--page-bg);
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    max-width: 850px;
+    margin: 16px 0 22px;
+    font-size: clamp(2.7rem, 5.5vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+  }
+
+  .intro {
+    max-width: 740px;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  .certifications-section {
+    padding: 82px 0 96px;
+    background: #ffffff;
+  }
+
+  .certification-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .certification-card {
+    min-height: 260px;
+    padding: 30px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--page-bg);
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 42px;
+  }
+
+  .card-top p {
+    margin: 0;
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.73rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  .card-top span {
+    padding: 6px 9px;
+    border-radius: 999px;
+    color: #355142;
+    background: var(--green-soft);
+    font-size: 0.72rem;
+    font-weight: 800;
+  }
+
+  h2 {
+    margin-bottom: 12px;
+    font-size: 1.38rem;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+  }
+
+  .certification-card > p {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  @media (max-width: 680px) {
+    .certification-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .shell {
+      width: min(100% - 28px, 980px);
+    }
+
+    .page-hero,
+    .certifications-section {
+      padding: 64px 0;
+    }
+
+    .certification-card {
+      padding: 24px;
+    }
+  }
+</style>

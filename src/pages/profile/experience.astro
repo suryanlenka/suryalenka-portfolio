@@ -1,0 +1,271 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const roles = [
+  {
+    period: "Current",
+    company: "Mitel",
+    title: "Team Lead, MCX & CloudLink",
+    description:
+      "Leading technical work across MCX and CloudLink environments, supporting complex issue resolution, technical guidance, platform understanding, escalations, workflow analysis, and customer-impacting investigations.",
+    focus: [
+      "Technical leadership",
+      "MCX and CloudLink",
+      "Complex support and escalation",
+      "Customer communication platforms",
+    ],
+  },
+  {
+    period: "Previous experience",
+    company: "Mitel",
+    title: "Unified Communications & Contact Center Engineering",
+    description:
+      "Worked across enterprise communication and contact center technologies, including troubleshooting, integrations, telephony workflows, customer environments, and product support.",
+    focus: [
+      "MiVB and MiCollab",
+      "MiCC / MCX",
+      "MBG and NuPoint",
+      "Contact Center workflows",
+    ],
+  },
+  {
+    period: "Earlier career",
+    company: "Avaya",
+    title: "Unified Communications & Contact Center Engineering",
+    description:
+      "Built strong experience in enterprise telephony, contact center systems, call flows, integrations, and customer communication platforms.",
+    focus: [
+      "Enterprise telephony",
+      "CTI integrations",
+      "IVR and routing",
+      "Customer interaction systems",
+    ],
+  },
+  {
+    period: "Earlier career",
+    company: "HCL",
+    title: "Technology & Communications Engineering",
+    description:
+      "Developed foundational experience in enterprise systems, networking, customer support, troubleshooting, and communication technologies.",
+    focus: [
+      "Technical support",
+      "Networking",
+      "Enterprise systems",
+      "Problem-solving",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Experience | Surya Lenka"
+  description="Professional experience of Surya Lenka across Mitel, Avaya, HCL, Unified Communications, Contact Center technology, technical leadership, and solution architecture."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Professional experience</p>
+      <h1>Two decades of enterprise communication technology.</h1>
+      <p class="intro">
+        My career has been built around understanding complex communication
+        systems, supporting customers, designing practical solutions, and
+        helping teams resolve difficult technical problems with clarity.
+      </p>
+    </div>
+  </section>
+
+  <section class="experience-section">
+    <div class="shell">
+      <div class="summary-grid">
+        <div>
+          <strong>20 years</strong>
+          <span>Industry experience</span>
+        </div>
+
+        <div>
+          <strong>3 organisations</strong>
+          <span>HCL, Avaya and Mitel</span>
+        </div>
+
+        <div>
+          <strong>Current role</strong>
+          <span>Team Lead, MCX & CloudLink</span>
+        </div>
+      </div>
+
+      <div class="timeline">
+        {roles.map((role) => (
+          <article class="role-card">
+            <div class="role-meta">
+              <p>{role.period}</p>
+              <span>{role.company}</span>
+            </div>
+
+            <div class="role-content">
+              <h2>{role.title}</h2>
+              <p>{role.description}</p>
+
+              <div class="focus-list">
+                {role.focus.map((item) => (
+                  <span>{item}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .shell {
+    width: min(1040px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .page-hero {
+    padding: 92px 0 70px;
+    background:
+      radial-gradient(circle at 82% 14%, rgba(196, 230, 208, 0.72), transparent 23rem),
+      var(--page-bg);
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    max-width: 860px;
+    margin: 16px 0 22px;
+    font-size: clamp(2.7rem, 5.5vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+  }
+
+  .intro {
+    max-width: 760px;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  .experience-section {
+    padding: 78px 0 96px;
+    background: #ffffff;
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+
+  .summary-grid > div {
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--page-bg);
+  }
+
+  .summary-grid strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.02rem;
+  }
+
+  .summary-grid span {
+    color: var(--muted);
+    font-size: 0.87rem;
+  }
+
+  .timeline {
+    display: grid;
+    gap: 22px;
+  }
+
+  .role-card {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 40px;
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .role-meta p {
+    margin-bottom: 8px;
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.73rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .role-meta span {
+    font-size: 0.95rem;
+    font-weight: 800;
+  }
+
+  .role-content h2 {
+    margin-bottom: 13px;
+    font-size: 1.42rem;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+  }
+
+  .role-content > p {
+    max-width: 720px;
+    margin-bottom: 20px;
+    color: var(--muted);
+  }
+
+  .focus-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .focus-list span {
+    padding: 7px 10px;
+    border-radius: 999px;
+    color: #355142;
+    background: var(--green-soft);
+    font-size: 0.79rem;
+    font-weight: 700;
+  }
+
+  @media (max-width: 720px) {
+    .summary-grid {
+      grid-template-columns: 1fr;
+      margin-bottom: 38px;
+    }
+
+    .role-card {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .shell {
+      width: min(100% - 28px, 1040px);
+    }
+
+    .page-hero,
+    .experience-section {
+      padding: 64px 0;
+    }
+  }
+</style>

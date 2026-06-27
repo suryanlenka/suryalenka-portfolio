@@ -1,0 +1,189 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const highlights = [
+  "20 years across Unified Communications and Contact Center technology",
+  "Experience with HCL, Avaya, and Mitel",
+  "Current Team Lead for MCX and CloudLink",
+  "Focused on architecture, customer journeys, SIP, IVR, automation, and applied AI",
+];
+---
+
+<BaseLayout
+  title="About Surya Lenka | UC, Contact Center & Applied AI"
+  description="Learn about Surya Lenka, a Technical Lead with 20 years of experience in Unified Communications, Contact Center, solution architecture and applied AI."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Profile</p>
+      <h1>Technology leader with deep roots in enterprise communications.</h1>
+      <p class="intro">
+        I work at the intersection of Unified Communications, Contact Center,
+        enterprise telephony, workflow design, and technical leadership.
+        My focus is simple: understand complex systems deeply and turn that
+        understanding into better outcomes for customers, teams, and products.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="shell profile-grid">
+      <div class="main-copy">
+        <h2>About me</h2>
+
+        <p>
+          Over the last two decades, I have worked across HCL, Avaya, and Mitel,
+          building strong experience in enterprise communication platforms,
+          customer interaction systems, technical support, solution architecture,
+          and complex issue resolution.
+        </p>
+
+        <p>
+          Today, as a Team Lead for MCX and CloudLink, I work with systems where
+          reliability, integration, customer journeys, and technical clarity
+          matter every day. I enjoy solving problems that require both detailed
+          technical investigation and a broad understanding of how a platform
+          fits together.
+        </p>
+
+        <p>
+          Alongside my core work, I am actively exploring applied AI, workflow
+          automation, RAG, MCP, agentic systems, and API-based integrations.
+          My interest is not just in AI as a concept, but in using it to make
+          support, troubleshooting, and customer experiences more useful.
+        </p>
+      </div>
+
+      <aside class="highlights-card">
+        <p class="card-label">At a glance</p>
+
+        <ul>
+          {highlights.map((highlight) => (
+            <li>{highlight}</li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .shell {
+    width: min(980px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .page-hero {
+    padding: 92px 0 70px;
+    background:
+      radial-gradient(circle at 82% 14%, rgba(196, 230, 208, 0.72), transparent 23rem),
+      var(--page-bg);
+  }
+
+  .eyebrow,
+  .card-label {
+    margin: 0;
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    max-width: 860px;
+    margin: 16px 0 22px;
+    font-size: clamp(2.7rem, 5.5vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+  }
+
+  .intro {
+    max-width: 760px;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  .content-section {
+    padding: 82px 0 96px;
+    background: #ffffff;
+  }
+
+  .profile-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 64px;
+    align-items: start;
+  }
+
+  h2 {
+    margin-bottom: 22px;
+    font-size: 2rem;
+    letter-spacing: -0.04em;
+  }
+
+  .main-copy p {
+    margin-bottom: 20px;
+    color: var(--muted);
+    font-size: 1rem;
+  }
+
+  .highlights-card {
+    padding: 26px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--page-bg);
+  }
+
+  .highlights-card ul {
+    display: grid;
+    gap: 14px;
+    margin: 22px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .highlights-card li {
+    position: relative;
+    padding-left: 18px;
+    color: #405047;
+    font-size: 0.9rem;
+  }
+
+  .highlights-card li::before {
+    content: "";
+    position: absolute;
+    top: 0.58rem;
+    left: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+
+  @media (max-width: 760px) {
+    .profile-grid {
+      grid-template-columns: 1fr;
+      gap: 34px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .shell {
+      width: min(100% - 28px, 980px);
+    }
+
+    .page-hero,
+    .content-section {
+      padding: 64px 0;
+    }
+  }
+</style>
