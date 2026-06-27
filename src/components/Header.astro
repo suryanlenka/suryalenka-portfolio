@@ -1,0 +1,424 @@
+---
+const navItems = [
+  {
+    label: "Profile",
+    items: [
+      { label: "About Me", href: "/about/" },
+      { label: "Experience", href: "/experience/" },
+      { label: "Education", href: "/education/" },
+      { label: "Certifications", href: "/certifications/" },
+    ],
+  },
+  {
+    label: "Expertise",
+    items: [
+      { label: "UC & Contact Center", href: "/expertise/uc-contact-center/" },
+      { label: "IVR & Solution Architecture", href: "/expertise/ivr-architecture/" },
+      { label: "SIP, CTI, CSTA & TAPI", href: "/expertise/sip-cti/" },
+      { label: "Systems & Networking", href: "/expertise/systems-networking/" },
+      { label: "DevOps & Automation", href: "/expertise/devops-automation/" },
+      { label: "Applied AI & Automation", href: "/expertise/applied-ai/" },
+    ],
+  },
+  {
+    label: "Projects",
+    items: [
+      { label: "SupportBuddy", href: "/projects/supportbuddy/" },
+      { label: "Log Parser", href: "/projects/log-parser/" },
+      { label: "Innovation & Vibeathon", href: "/projects/innovation/" },
+    ],
+  },
+  {
+    label: "Insights",
+    items: [
+      { label: "Blog", href: "/blog/" },
+      { label: "Technical Notes", href: "/insights/" },
+    ],
+  },
+  {
+    label: "Fun World",
+    items: [
+      { label: "Save the Baby Dragon", href: "/fun-world/save-the-baby-dragon/" },
+    ],
+  },
+];
+---
+
+<header class="site-header">
+  <div class="nav-shell">
+    <a class="brand" href="/" aria-label="Surya Lenka home">
+      Surya<span>Lenka</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="/">Home</a>
+
+      {navItems.map((item) => (
+        <details class="nav-dropdown">
+          <summary>
+            {item.label}
+            <span class="chevron" aria-hidden="true">⌄</span>
+          </summary>
+
+          <div class="dropdown-panel">
+            {item.items.map((subItem) => (
+              <a href={subItem.href}>{subItem.label}</a>
+            ))}
+          </div>
+        </details>
+      ))}
+
+      <a class="contact-link" href="/contact/">Contact</a>
+    </nav>
+
+    <details class="mobile-menu">
+      <summary aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </summary>
+
+      <div class="mobile-panel">
+        <a href="/">Home</a>
+
+        {navItems.map((item) => (
+          <details>
+            <summary>{item.label}</summary>
+            <div class="mobile-submenu">
+              {item.items.map((subItem) => (
+                <a href={subItem.href}>{subItem.label}</a>
+              ))}
+            </div>
+          </details>
+        ))}
+
+        <a href="/contact/">Contact</a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<script>
+  const dropdowns = document.querySelectorAll(".nav-dropdown");
+  const closeTimers = new WeakMap();
+  const closeDelay = 300;
+
+  function cancelClose(dropdown) {
+    const timer = closeTimers.get(dropdown);
+
+    if (timer) {
+      window.clearTimeout(timer);
+      closeTimers.delete(dropdown);
+    }
+
+    dropdown.removeAttribute("data-closing");
+  }
+
+  function closeDropdown(dropdown) {
+    if (!dropdown.hasAttribute("open")) return;
+
+    dropdown.setAttribute("data-closing", "true");
+
+    const timer = window.setTimeout(() => {
+      dropdown.removeAttribute("open");
+      dropdown.removeAttribute("data-closing");
+      closeTimers.delete(dropdown);
+    }, closeDelay);
+
+    closeTimers.set(dropdown, timer);
+  }
+
+  function openDropdown(dropdown) {
+    cancelClose(dropdown);
+    dropdown.setAttribute("open", "");
+
+    dropdowns.forEach((otherDropdown) => {
+      if (otherDropdown !== dropdown) {
+        closeDropdown(otherDropdown);
+      }
+    });
+  }
+
+  const isDesktopHover = window.matchMedia(
+    "(hover: hover) and (pointer: fine)"
+  ).matches;
+
+  if (isDesktopHover) {
+    dropdowns.forEach((dropdown) => {
+      const summary = dropdown.querySelector("summary");
+
+      dropdown.addEventListener("mouseenter", () => {
+        openDropdown(dropdown);
+      });
+
+      dropdown.addEventListener("mouseleave", () => {
+        closeDropdown(dropdown);
+      });
+
+      summary.addEventListener("click", (event) => {
+        event.preventDefault();
+      });
+    });
+  }
+
+  document.addEventListener("click", (event) => {
+    const clickedInsideMenu = Array.from(dropdowns).some((dropdown) =>
+      dropdown.contains(event.target)
+    );
+
+    if (!clickedInsideMenu) {
+      dropdowns.forEach(closeDropdown);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      dropdowns.forEach(closeDropdown);
+    }
+  });
+
+  window.addEventListener("blur", () => {
+    dropdowns.forEach(closeDropdown);
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid rgba(21, 34, 29, 0.08);
+    background: rgba(250, 251, 249, 0.92);
+    backdrop-filter: blur(14px);
+  }
+
+  .nav-shell {
+    width: min(1180px, calc(100% - 40px));
+    min-height: 76px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+
+  .brand {
+    color: #17211d;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: -0.9px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .brand span {
+    color: #24724f;
+  }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .desktop-nav > a,
+  .nav-dropdown summary {
+    color: #33433b;
+    font-size: 0.91rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 10px 11px;
+    border-radius: 8px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .desktop-nav > a:hover,
+  .nav-dropdown summary:hover {
+    color: #24724f;
+    background: #eef5f0;
+  }
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 14px;
+}
+
+  .nav-dropdown summary::-webkit-details-marker,
+  .mobile-menu summary::-webkit-details-marker,
+  .mobile-panel summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .chevron {
+    display: inline-block;
+    margin-left: 4px;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease;
+  }
+
+  .nav-dropdown[open] .chevron {
+    transform: rotate(180deg);
+  }
+
+.dropdown-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 285px;
+  padding: 10px;
+  border: 1px solid #dfe7e1;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(16, 37, 25, 0.14);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-7px);
+  transition:
+    opacity 0.16s ease,
+    transform 0.16s ease,
+    visibility 0s linear 0.16s;
+}
+
+.nav-dropdown[open] .dropdown-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition:
+    opacity 0.16s ease,
+    transform 0.16s ease;
+}
+
+.nav-dropdown[data-closing="true"] .dropdown-panel {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-7px);
+}
+
+  .dropdown-panel a {
+    display: block;
+    padding: 11px 12px;
+    border-radius: 9px;
+    color: #3e4d45;
+    font-size: 0.9rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .dropdown-panel a:hover {
+    background: #edf5ef;
+    color: #1d6b49;
+  }
+
+  .contact-link {
+    margin-left: 5px;
+    color: #ffffff !important;
+    background: #1d6b49;
+  }
+
+  .contact-link:hover {
+    color: #ffffff !important;
+    background: #155539 !important;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  @media (max-width: 980px) {
+    .desktop-nav {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: block;
+      position: relative;
+    }
+
+    .mobile-menu > summary {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-content: center;
+      gap: 5px;
+      border: 1px solid #dce5de;
+      border-radius: 10px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .mobile-menu > summary span {
+      width: 18px;
+      height: 2px;
+      border-radius: 99px;
+      background: #23332a;
+    }
+
+    .mobile-panel {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 12px);
+      width: min(330px, calc(100vw - 28px));
+      padding: 12px;
+      border: 1px solid #dfe7e1;
+      border-radius: 14px;
+      background: #ffffff;
+      box-shadow: 0 18px 45px rgba(16, 37, 25, 0.16);
+    }
+
+    .mobile-panel > a,
+    .mobile-panel summary {
+      display: block;
+      padding: 12px;
+      color: #2f4037;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      list-style: none;
+      border-radius: 8px;
+    }
+
+    .mobile-panel > a:hover,
+    .mobile-panel summary:hover {
+      background: #edf5ef;
+      color: #1d6b49;
+    }
+
+    .mobile-submenu {
+      padding: 0 0 5px 14px;
+    }
+
+    .mobile-submenu a {
+      display: block;
+      padding: 9px 12px;
+      color: #5a6a61;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .mobile-submenu a:hover {
+      color: #1d6b49;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .nav-shell {
+      width: min(100% - 28px, 1180px);
+      min-height: 68px;
+    }
+
+    .brand {
+      font-size: 1.18rem;
+    }
+  }
+</style>

@@ -1,0 +1,107 @@
+---
+import Header from "../components/Header.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Surya Lenka | UC, Contact Center & Applied AI",
+  description = "Portfolio of Surya Lenka, Technical Lead in Unified Communications, Contact Center, architecture, automation and applied AI.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f8faf8" />
+    <title>{title}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <Header />
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-shell">
+        <span>© {new Date().getFullYear()} Surya Lenka</span>
+        <span>UC · Contact Center · Architecture · Applied AI</span>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --page-bg: #f8faf8;
+    --surface: #ffffff;
+    --text: #17211d;
+    --muted: #617067;
+    --line: #dce5de;
+    --green: #24724f;
+    --green-dark: #195b3d;
+    --green-soft: #eaf4ed;
+    --shadow: 0 18px 48px rgba(17, 40, 27, 0.08);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    color: var(--text);
+    background: var(--page-bg);
+    font-family: "Manrope", Arial, sans-serif;
+    line-height: 1.6;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .site-footer {
+    border-top: 1px solid var(--line);
+    background: #ffffff;
+  }
+
+  .footer-shell {
+    width: min(1180px, calc(100% - 40px));
+    min-height: 84px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    color: var(--muted);
+    font-size: 0.84rem;
+  }
+
+  @media (max-width: 620px) {
+    .footer-shell {
+      width: min(100% - 28px, 1180px);
+      padding: 20px 0;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>
