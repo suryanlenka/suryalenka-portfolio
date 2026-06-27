@@ -1,0 +1,275 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const expertiseAreas = [
+  {
+    number: "01",
+    title: "Unified Communications & Contact Center",
+    description:
+      "Enterprise communication and customer interaction platforms across Mitel MiVB, MiCC/MCX, MBG, MiCollab, NuPoint, CloudLink, Workflow Studio, and related integrations.",
+    technologies:
+      "MiVB · MiCC/MCX · MBG · MiCollab · NuPoint · CloudLink · Workflow Studio",
+    href: "/expertise/uc-contact-center/",
+  },
+  {
+    number: "02",
+    title: "IVR & Solution Architecture",
+    description:
+      "Complex IVR design, routing strategies, customer journeys, call-flow logic, agent workflows, and practical solution architecture.",
+    technologies:
+      "IVR · Routing · Call Flows · Customer Journey · Workflow Design",
+    href: "/expertise/ivr-architecture/",
+  },
+  {
+    number: "03",
+    title: "SIP, CTI & Telephony Integration",
+    description:
+      "Deep technical knowledge of SIP signalling, CTI integrations, CSTA, TAPI, call control, event handling, and enterprise telephony interoperability.",
+    technologies:
+      "SIP · CTI · CSTA · TAPI · Call Control · Telephony Integration",
+    href: "/expertise/sip-cti/",
+  },
+  {
+    number: "04",
+    title: "Systems, Networking & Platform Operations",
+    description:
+      "Enterprise networking, Linux environments, Windows-based services, service dependencies, communication infrastructure, and platform troubleshooting.",
+    technologies:
+      "Networking · Linux · Windows Services · Infrastructure · Troubleshooting",
+    href: "/expertise/systems-networking/",
+  },
+  {
+    number: "05",
+    title: "DevOps & Engineering Automation",
+    description:
+      "Modern engineering practices for source control, deployment automation, containers, CI/CD, configuration management, and artifact workflows.",
+    technologies:
+      "Git · Docker · Kubernetes · Jenkins · Ansible · CI/CD · Artifacts",
+    href: "/expertise/devops-automation/",
+  },
+  {
+    number: "06",
+    title: "Applied AI & Intelligent Automation",
+    description:
+      "Practical use of AI, RAG, MCP, agentic systems, multimodal models, APIs, tools, and services to improve support and customer experience workflows.",
+    technologies:
+      "AI/ML · RAG · MCP · Agentic AI · Multimodal AI · APIs",
+    href: "/expertise/applied-ai/",
+  },
+];
+---
+
+<BaseLayout
+  title="Expertise | Surya Lenka"
+  description="Technical expertise of Surya Lenka across Unified Communications, Contact Center, IVR architecture, SIP, CTI, DevOps, networking, and applied AI."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Technical expertise</p>
+      <h1>Enterprise communication systems, architecture, automation, and applied AI.</h1>
+      <p class="intro">
+        My expertise combines deep communication-platform knowledge with practical
+        solution design, technical troubleshooting, workflow automation, and a
+        growing focus on AI-enabled experiences.
+      </p>
+    </div>
+  </section>
+
+  <section class="expertise-section">
+    <div class="shell">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Areas of focus</p>
+          <h2>Six connected areas of technical depth.</h2>
+        </div>
+
+        <p>
+          Each area represents a part of the larger picture: reliable customer
+          communication systems, well-designed workflows, and practical outcomes.
+        </p>
+      </div>
+
+      <div class="expertise-grid">
+        {expertiseAreas.map((area) => (
+          <a class="expertise-card" href={area.href}>
+            <span class="number">{area.number}</span>
+
+            <h3>{area.title}</h3>
+
+            <p>{area.description}</p>
+
+            <span class="technology-list">{area.technologies}</span>
+
+            <span class="explore-link">Explore area →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .shell {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .page-hero {
+    padding: 92px 0 70px;
+    background:
+      radial-gradient(circle at 82% 14%, rgba(196, 230, 208, 0.72), transparent 24rem),
+      var(--page-bg);
+  }
+
+  .eyebrow,
+  .section-label,
+  .number {
+    margin: 0;
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    max-width: 950px;
+    margin: 16px 0 22px;
+    font-size: clamp(2.7rem, 5.5vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+  }
+
+  .intro {
+    max-width: 790px;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  .expertise-section {
+    padding: 82px 0 96px;
+    background: #ffffff;
+  }
+
+  .section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 40px;
+    margin-bottom: 34px;
+  }
+
+  .section-heading > div {
+    max-width: 690px;
+  }
+
+  .section-heading h2 {
+    margin: 10px 0 0;
+    font-size: clamp(2rem, 3.8vw, 3.1rem);
+    line-height: 1.12;
+    letter-spacing: -0.05em;
+  }
+
+  .section-heading > p {
+    max-width: 360px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.94rem;
+  }
+
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .expertise-card {
+    min-height: 305px;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    color: var(--text);
+    background: var(--page-bg);
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .expertise-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(36, 114, 79, 0.42);
+    box-shadow: var(--shadow);
+  }
+
+  .expertise-card h3 {
+    max-width: 460px;
+    margin: 24px 0 11px;
+    font-size: 1.33rem;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+  }
+
+  .expertise-card p {
+    max-width: 500px;
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .technology-list {
+    display: block;
+    color: #52635a;
+    font-size: 0.79rem;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+
+  .explore-link {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--green);
+    font-size: 0.84rem;
+    font-weight: 800;
+  }
+
+  @media (max-width: 760px) {
+    .section-heading {
+      display: block;
+    }
+
+    .section-heading > p {
+      margin-top: 16px;
+    }
+
+    .expertise-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .shell {
+      width: min(100% - 28px, 1120px);
+    }
+
+    .page-hero,
+    .expertise-section {
+      padding: 64px 0;
+    }
+
+    .expertise-card {
+      min-height: auto;
+      padding: 24px;
+    }
+  }
+</style>

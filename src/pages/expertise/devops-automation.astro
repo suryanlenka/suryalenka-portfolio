@@ -1,0 +1,383 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const practices = [
+  {
+    title: "Source Control & Collaboration",
+    text: "Using Git-based workflows to manage code changes, reviews, releases, and reliable collaboration across engineering work.",
+    tools: "Git · GitHub · Branching · Pull Requests",
+  },
+  {
+    title: "CI/CD & Deployment Automation",
+    text: "Understanding automated build, validation, deployment, and release workflows that help teams deliver changes consistently.",
+    tools: "Jenkins · CI/CD · Pipelines · Artifacts",
+  },
+  {
+    title: "Containers & Orchestration",
+    text: "Working knowledge of containerized applications, image-based delivery, service deployment, and orchestration concepts.",
+    tools: "Docker · Kubernetes · Containers",
+  },
+  {
+    title: "Configuration Automation",
+    text: "Using repeatable configuration practices to reduce manual effort, improve consistency, and support reliable environments.",
+    tools: "Ansible · Automation · Configuration",
+  },
+];
+
+const principles = [
+  "Build repeatable processes instead of relying on manual steps",
+  "Keep environments, deployments, and configuration changes traceable",
+  "Use automation to reduce human error and improve consistency",
+  "Design delivery workflows that are understandable and supportable",
+  "Connect engineering practices to real operational outcomes",
+];
+---
+
+<BaseLayout
+  title="DevOps & Engineering Automation | Surya Lenka"
+  description="DevOps, CI/CD, Git, Docker, Kubernetes, Jenkins, Ansible, artifacts, and engineering automation expertise of Surya Lenka."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Expertise · 05</p>
+      <h1>DevOps practices and automation for reliable engineering delivery.</h1>
+      <p class="intro">
+        Modern communication platforms depend on disciplined engineering
+        practices. I focus on the tools and workflows that make changes more
+        repeatable, traceable, and dependable.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="shell">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Engineering approach</p>
+          <h2>Reliable delivery comes from repeatable systems and clear workflows.</h2>
+        </div>
+
+        <p>
+          DevOps is not only about tools. It is about creating a practical path
+          from source code to deployment, while keeping quality, visibility,
+          reliability, and operational readiness in mind.
+        </p>
+      </div>
+
+      <div class="practice-grid">
+        {practices.map((practice, index) => (
+          <article class="practice-card">
+            <span>0{index + 1}</span>
+            <h3>{practice.title}</h3>
+            <p>{practice.text}</p>
+            <small>{practice.tools}</small>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="principles-section">
+    <div class="shell principles-layout">
+      <div>
+        <p class="section-label">Working principles</p>
+        <h2>Automation should make systems easier to run, not harder to understand.</h2>
+      </div>
+
+      <div class="principle-list">
+        {principles.map((principle) => (
+          <div>
+            <span>✓</span>
+            <p>{principle}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="tooling-section">
+    <div class="shell">
+      <p class="section-label">Technology areas</p>
+
+      <div class="tool-list">
+        <span>Git</span>
+        <span>Docker</span>
+        <span>Kubernetes</span>
+        <span>Jenkins</span>
+        <span>Ansible</span>
+        <span>CI/CD</span>
+        <span>Artifact Management</span>
+        <span>Deployment Automation</span>
+        <span>Cloud Monitoring</span>
+        <span>CloudWatch</span>
+        <span>Sumo Logic</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="next-section">
+    <div class="shell next-card">
+      <div>
+        <p class="section-label">Next expertise area</p>
+        <h2>Applied AI & Intelligent Automation</h2>
+        <p>
+          Explore how AI, RAG, MCP, APIs, tools, and automation can improve
+          support workflows, customer experience, and technical productivity.
+        </p>
+      </div>
+
+      <a href="/expertise/applied-ai/">Explore Applied AI →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .shell {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .page-hero {
+    padding: 92px 0 70px;
+    background:
+      radial-gradient(circle at 84% 16%, rgba(196, 230, 208, 0.72), transparent 24rem),
+      var(--page-bg);
+  }
+
+  .eyebrow,
+  .section-label {
+    margin: 0;
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    max-width: 940px;
+    margin: 16px 0 22px;
+    font-size: clamp(2.7rem, 5.5vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+  }
+
+  .intro {
+    max-width: 780px;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  .content-section {
+    padding: 84px 0 96px;
+    background: #ffffff;
+  }
+
+  .section-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.65fr);
+    gap: 64px;
+    align-items: end;
+    margin-bottom: 40px;
+  }
+
+  .section-heading h2,
+  .principles-layout h2,
+  .next-card h2 {
+    margin: 10px 0 0;
+    font-size: clamp(2rem, 3.8vw, 3.1rem);
+    line-height: 1.12;
+    letter-spacing: -0.05em;
+  }
+
+  .section-heading > p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .practice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .practice-card {
+    min-height: 255px;
+    padding: 27px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--page-bg);
+  }
+
+  .practice-card > span {
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.76rem;
+  }
+
+  .practice-card h3 {
+    margin: 24px 0 10px;
+    font-size: 1.18rem;
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+  }
+
+  .practice-card p {
+    margin-bottom: 18px;
+    color: var(--muted);
+    font-size: 0.91rem;
+  }
+
+  .practice-card small {
+    color: #456152;
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .principles-section {
+    padding: 84px 0;
+    color: #ffffff;
+    background: #18281f;
+  }
+
+  .principles-section .section-label {
+    color: #a7d8bb;
+  }
+
+  .principles-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.8fr);
+    gap: 80px;
+    align-items: start;
+  }
+
+  .principle-list {
+    display: grid;
+    gap: 13px;
+  }
+
+  .principle-list div {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .principle-list span {
+    color: #a7d8bb;
+    font-weight: 800;
+  }
+
+  .principle-list p {
+    margin: 0;
+    color: #d8e3db;
+    font-size: 0.93rem;
+  }
+
+  .tooling-section {
+    padding: 84px 0;
+    background: #ffffff;
+  }
+
+  .tool-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .tool-list span {
+    padding: 10px 13px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: #385443;
+    background: var(--page-bg);
+    font-size: 0.84rem;
+    font-weight: 750;
+  }
+
+  .next-section {
+    padding: 84px 0;
+    background: var(--page-bg);
+  }
+
+  .next-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 28px;
+    padding: 38px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: #ffffff;
+  }
+
+  .next-card h2 {
+    font-size: 2rem;
+  }
+
+  .next-card p:not(.section-label) {
+    max-width: 650px;
+    margin: 14px 0 0;
+    color: var(--muted);
+  }
+
+  .next-card a {
+    flex: 0 0 auto;
+    padding: 13px 17px;
+    border-radius: 9px;
+    color: #ffffff;
+    background: var(--green-dark);
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .next-card a:hover {
+    background: var(--green);
+  }
+
+  @media (max-width: 860px) {
+    .section-heading,
+    .principles-layout {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .practice-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .next-card {
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 26px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .shell {
+      width: min(100% - 28px, 1120px);
+    }
+
+    .page-hero,
+    .content-section,
+    .principles-section,
+    .tooling-section,
+    .next-section {
+      padding: 64px 0;
+    }
+  }
+</style>

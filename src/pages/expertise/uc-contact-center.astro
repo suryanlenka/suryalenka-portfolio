@@ -1,0 +1,344 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const platforms = [
+  {
+    title: "Mitel MiVoice Business",
+    text: "Enterprise call control, telephony configuration, user services, trunks, routing, resilience, and integration with surrounding communication systems.",
+  },
+  {
+    title: "MiContact Center / MCX",
+    text: "Contact center workflows, agent and supervisor experience, routing, reporting, integrations, troubleshooting, and customer interaction flows.",
+  },
+  {
+    title: "CloudLink",
+    text: "Cloud-connected communication services, platform integrations, operational troubleshooting, service behavior, and customer-impacting workflows.",
+  },
+  {
+    title: "MiCollab, MBG & NuPoint",
+    text: "Collaboration, mobility, secure edge connectivity, voicemail, messaging, and supporting enterprise communication services.",
+  },
+  {
+    title: "Workflow Studio",
+    text: "Workflow automation, API-driven integrations, business-process orchestration, and customer or agent experience improvement.",
+  },
+  {
+    title: "Zoom & Ecosystem Integrations",
+    text: "Integration awareness across communication platforms, collaboration tools, customer environments, and connected enterprise services.",
+  },
+];
+
+const capabilities = [
+  "Complex contact center troubleshooting",
+  "Customer interaction workflow analysis",
+  "Platform integration understanding",
+  "Escalation and root-cause investigation",
+  "Agent and supervisor experience",
+  "Call routing and customer journey design",
+];
+---
+
+<BaseLayout
+  title="UC & Contact Center | Surya Lenka"
+  description="Unified Communications and Contact Center expertise of Surya Lenka across Mitel MiVB, MiCC, MCX, CloudLink, MiCollab, MBG, NuPoint, Workflow Studio, and integrations."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Expertise · 01</p>
+      <h1>Unified Communications and Contact Center platforms.</h1>
+      <p class="intro">
+        Deep experience across enterprise communication systems, customer
+        interaction platforms, cloud-connected services, workflow design, and
+        the technical layers that connect them.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="shell">
+      <div class="intro-grid">
+        <div>
+          <p class="section-label">Platform perspective</p>
+          <h2>Reliable communication systems require more than product knowledge.</h2>
+        </div>
+
+        <p>
+          Strong UC and Contact Center delivery depends on understanding how
+          call control, routing, applications, integrations, infrastructure,
+          workflows, users, and customer journeys work together. My focus is on
+          seeing that full picture while still being able to investigate the
+          technical detail.
+        </p>
+      </div>
+
+      <div class="platform-grid">
+        {platforms.map((platform, index) => (
+          <article class="platform-card">
+            <span>0{index + 1}</span>
+            <h3>{platform.title}</h3>
+            <p>{platform.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="capabilities-section">
+    <div class="shell capability-layout">
+      <div>
+        <p class="section-label">What I bring</p>
+        <h2>Technical depth with customer and operational context.</h2>
+      </div>
+
+      <div class="capability-list">
+        {capabilities.map((capability) => (
+          <div>
+            <span>✓</span>
+            <p>{capability}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="next-section">
+    <div class="shell next-card">
+      <div>
+        <p class="section-label">Next expertise area</p>
+        <h2>IVR and Solution Architecture</h2>
+        <p>
+          Explore how call flows, routing logic, customer journeys, and
+          practical solution design come together.
+        </p>
+      </div>
+
+      <a href="/expertise/ivr-architecture/">Explore IVR & Architecture →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .shell {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .page-hero {
+    padding: 92px 0 70px;
+    background:
+      radial-gradient(circle at 84% 16%, rgba(196, 230, 208, 0.72), transparent 24rem),
+      var(--page-bg);
+  }
+
+  .eyebrow,
+  .section-label {
+    margin: 0;
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    max-width: 920px;
+    margin: 16px 0 22px;
+    font-size: clamp(2.7rem, 5.5vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+  }
+
+  .intro {
+    max-width: 760px;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  .content-section {
+    padding: 84px 0 96px;
+    background: #ffffff;
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.65fr);
+    gap: 64px;
+    align-items: end;
+    margin-bottom: 40px;
+  }
+
+  .intro-grid h2,
+  .capability-layout h2,
+  .next-card h2 {
+    margin: 10px 0 0;
+    font-size: clamp(2rem, 3.8vw, 3.1rem);
+    line-height: 1.12;
+    letter-spacing: -0.05em;
+  }
+
+  .intro-grid > p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .platform-card {
+    min-height: 245px;
+    padding: 26px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--page-bg);
+  }
+
+  .platform-card > span {
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.76rem;
+  }
+
+  .platform-card h3 {
+    margin: 24px 0 10px;
+    font-size: 1.15rem;
+    line-height: 1.25;
+    letter-spacing: -0.035em;
+  }
+
+  .platform-card p {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .capabilities-section {
+    padding: 84px 0;
+    color: #ffffff;
+    background: #18281f;
+  }
+
+  .capabilities-section .section-label {
+    color: #a7d8bb;
+  }
+
+  .capability-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.8fr);
+    gap: 80px;
+    align-items: start;
+  }
+
+  .capability-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .capability-list div {
+    display: flex;
+    gap: 13px;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .capability-list span {
+    color: #a7d8bb;
+    font-weight: 800;
+  }
+
+  .capability-list p {
+    margin: 0;
+    color: #d3e0d7;
+    font-size: 0.94rem;
+  }
+
+  .next-section {
+    padding: 84px 0;
+    background: #ffffff;
+  }
+
+  .next-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 28px;
+    padding: 38px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--page-bg);
+  }
+
+  .next-card h2 {
+    font-size: 2rem;
+  }
+
+  .next-card p:not(.section-label) {
+    max-width: 650px;
+    margin: 14px 0 0;
+    color: var(--muted);
+  }
+
+  .next-card a {
+    flex: 0 0 auto;
+    color: #ffffff;
+    background: var(--green-dark);
+    padding: 13px 17px;
+    border-radius: 9px;
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .next-card a:hover {
+    background: var(--green);
+  }
+
+  @media (max-width: 860px) {
+    .platform-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .intro-grid,
+    .capability-layout {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .platform-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .next-card {
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 26px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .shell {
+      width: min(100% - 28px, 1120px);
+    }
+
+    .page-hero,
+    .content-section,
+    .capabilities-section,
+    .next-section {
+      padding: 64px 0;
+    }
+  }
+</style>

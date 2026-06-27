@@ -1,0 +1,413 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const principles = [
+  {
+    title: "Customer-first call flows",
+    text: "Designing IVR journeys that help callers reach the right outcome quickly, with clear options and minimal unnecessary steps.",
+  },
+  {
+    title: "Routing with purpose",
+    text: "Aligning routing logic with business requirements, agent skills, operating hours, customer context, and escalation needs.",
+  },
+  {
+    title: "Practical solution design",
+    text: "Balancing business expectations, technical constraints, maintainability, operational reliability, and future scalability.",
+  },
+  {
+    title: "Connected customer journeys",
+    text: "Considering how voice, agent workflows, integrations, data, and follow-up interactions work together as one experience.",
+  },
+];
+
+const workflowSteps = [
+  "Understand the customer and business journey",
+  "Define call entry points, options, routing, and exceptions",
+  "Map integrations, dependencies, and agent workflows",
+  "Validate failure paths, fallback behaviour, and operational support needs",
+  "Design for clarity, maintainability, and future change",
+];
+---
+
+<BaseLayout
+  title="IVR & Solution Architecture | Surya Lenka"
+  description="IVR and Contact Center solution architecture expertise of Surya Lenka, including call flows, routing logic, customer journeys, and enterprise communication design."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Expertise · 02</p>
+      <h1>Complex IVR design and practical solution architecture.</h1>
+      <p class="intro">
+        Strong customer communication journeys are designed, not accidental.
+        I focus on clear call flows, intelligent routing, agent experience,
+        technical reliability, and solutions that remain manageable over time.
+      </p>
+    </div>
+  </section>
+
+  <section class="architecture-section">
+    <div class="shell">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Architecture approach</p>
+          <h2>Turning communication requirements into reliable customer journeys.</h2>
+        </div>
+
+        <p>
+          IVR and Contact Center architecture sits between customer expectations,
+          business rules, platform capabilities, integrations, and real-world
+          operational requirements.
+        </p>
+      </div>
+
+      <div class="principles-grid">
+        {principles.map((principle, index) => (
+          <article class="principle-card">
+            <span>0{index + 1}</span>
+            <h3>{principle.title}</h3>
+            <p>{principle.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="workflow-section">
+    <div class="shell workflow-layout">
+      <div>
+        <p class="section-label">Design process</p>
+        <h2>From customer need to production-ready call flow.</h2>
+        <p class="workflow-intro">
+          A well-designed solution considers the expected path, but also the
+          exceptions: unavailable resources, invalid input, business-hour changes,
+          integration failures, transfers, callbacks, and escalation routes.
+        </p>
+      </div>
+
+      <div class="workflow-list">
+        {workflowSteps.map((step, index) => (
+          <div class="workflow-step">
+            <span>{index + 1}</span>
+            <p>{step}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="outcomes-section">
+    <div class="shell">
+      <p class="section-label">Focus areas</p>
+
+      <div class="outcomes-grid">
+        <div>
+          <strong>IVR design</strong>
+          <p>Menu structure, prompts, input handling, self-service paths, fallback flows, and caller experience.</p>
+        </div>
+
+        <div>
+          <strong>Routing strategy</strong>
+          <p>Skills, queues, priorities, time-based routing, overflow, escalation, and business continuity logic.</p>
+        </div>
+
+        <div>
+          <strong>Agent workflow</strong>
+          <p>Making sure the customer context, call reason, routing decision, and next action are useful for agents.</p>
+        </div>
+
+        <div>
+          <strong>Integration awareness</strong>
+          <p>Understanding where CRM, CTI, APIs, workflow automation, and communication platforms connect.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="next-section">
+    <div class="shell next-card">
+      <div>
+        <p class="section-label">Next expertise area</p>
+        <h2>SIP, CTI & Telephony Integration</h2>
+        <p>
+          Explore the protocols, events, call control, and integration layers
+          behind enterprise communication systems.
+        </p>
+      </div>
+
+      <a href="/expertise/sip-cti/">Explore SIP & CTI →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .shell {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .page-hero {
+    padding: 92px 0 70px;
+    background:
+      radial-gradient(circle at 84% 16%, rgba(196, 230, 208, 0.72), transparent 24rem),
+      var(--page-bg);
+  }
+
+  .eyebrow,
+  .section-label {
+    margin: 0;
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    max-width: 920px;
+    margin: 16px 0 22px;
+    font-size: clamp(2.7rem, 5.5vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+  }
+
+  .intro {
+    max-width: 770px;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  .architecture-section {
+    padding: 84px 0 96px;
+    background: #ffffff;
+  }
+
+  .section-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.65fr);
+    gap: 64px;
+    align-items: end;
+    margin-bottom: 40px;
+  }
+
+  .section-heading h2,
+  .workflow-layout h2,
+  .next-card h2 {
+    margin: 10px 0 0;
+    font-size: clamp(2rem, 3.8vw, 3.1rem);
+    line-height: 1.12;
+    letter-spacing: -0.05em;
+  }
+
+  .section-heading > p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .principle-card {
+    min-height: 235px;
+    padding: 27px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--page-bg);
+  }
+
+  .principle-card > span {
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.76rem;
+  }
+
+  .principle-card h3 {
+    margin: 24px 0 10px;
+    font-size: 1.18rem;
+    letter-spacing: -0.035em;
+  }
+
+  .principle-card p {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 0.91rem;
+  }
+
+  .workflow-section {
+    padding: 84px 0;
+    color: #ffffff;
+    background: #18281f;
+  }
+
+  .workflow-section .section-label {
+    color: #a7d8bb;
+  }
+
+  .workflow-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.8fr);
+    gap: 80px;
+    align-items: start;
+  }
+
+  .workflow-intro {
+    max-width: 540px;
+    margin: 18px 0 0;
+    color: #c9d8cd;
+  }
+
+  .workflow-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .workflow-step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .workflow-step span {
+    display: grid;
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+    place-items: center;
+    border-radius: 50%;
+    color: #18281f;
+    background: #a7d8bb;
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .workflow-step p {
+    margin: 2px 0 0;
+    color: #d8e3db;
+    font-size: 0.93rem;
+  }
+
+  .outcomes-section {
+    padding: 84px 0;
+    background: #ffffff;
+  }
+
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 28px;
+  }
+
+  .outcomes-grid > div {
+    min-height: 190px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    background: var(--page-bg);
+  }
+
+  .outcomes-grid strong {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 1rem;
+  }
+
+  .outcomes-grid p {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+
+  .next-section {
+    padding: 84px 0;
+    background: var(--page-bg);
+  }
+
+  .next-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 28px;
+    padding: 38px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: #ffffff;
+  }
+
+  .next-card h2 {
+    font-size: 2rem;
+  }
+
+  .next-card p:not(.section-label) {
+    max-width: 650px;
+    margin: 14px 0 0;
+    color: var(--muted);
+  }
+
+  .next-card a {
+    flex: 0 0 auto;
+    padding: 13px 17px;
+    border-radius: 9px;
+    color: #ffffff;
+    background: var(--green-dark);
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .next-card a:hover {
+    background: var(--green);
+  }
+
+  @media (max-width: 860px) {
+    .section-heading,
+    .workflow-layout {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .outcomes-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 620px) {
+    .principles-grid,
+    .outcomes-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .next-card {
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 26px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .shell {
+      width: min(100% - 28px, 1120px);
+    }
+
+    .page-hero,
+    .architecture-section,
+    .workflow-section,
+    .outcomes-section,
+    .next-section {
+      padding: 64px 0;
+    }
+  }
+</style>

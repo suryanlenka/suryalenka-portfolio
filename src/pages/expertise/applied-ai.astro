@@ -1,0 +1,462 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const focusAreas = [
+  {
+    title: "AI-Enabled Support",
+    text: "Using AI to make technical support faster and more useful through ticket intelligence, conversation summaries, knowledge retrieval, and guided troubleshooting.",
+  },
+  {
+    title: "RAG & Knowledge Retrieval",
+    text: "Exploring Retrieval-Augmented Generation to connect AI models with trusted technical documentation, tickets, logs, and internal knowledge sources.",
+  },
+  {
+    title: "MCP & Tool Connectivity",
+    text: "Understanding how Model Context Protocol can help AI systems interact with APIs, services, workflows, tools, and enterprise data sources.",
+  },
+  {
+    title: "Agentic AI Workflows",
+    text: "Exploring AI agents that can reason through tasks, use connected tools, gather context, and support structured workflow automation.",
+  },
+  {
+    title: "Multimodal AI",
+    text: "Working with AI capabilities that can understand and combine text, files, screenshots, images, transcripts, and structured information.",
+  },
+  {
+    title: "API-Driven Automation",
+    text: "Connecting AI models with APIs, tools, and services to automate useful end-to-end workflows instead of producing isolated responses.",
+  },
+];
+
+const workflowSteps = [
+  "Identify a real support, customer, or operational problem",
+  "Collect the right context from documents, APIs, tickets, logs, or conversations",
+  "Use AI to summarize, classify, retrieve, reason, or recommend",
+  "Connect the output to a useful workflow, tool, or user interface",
+  "Keep human review and clear confidence checks where needed",
+];
+
+const projects = [
+  {
+    title: "SupportBuddy",
+    text: "An AI Ticketing Intelligence concept that brings together fragmented customer interactions across voice, email, and chat to provide useful context to support agents.",
+    href: "/projects/supportbuddy/",
+  },
+  {
+    title: "Log Parser",
+    text: "A practical troubleshooting concept focused on helping engineers interpret technical logs and identify useful signals faster.",
+    href: "/projects/log-parser/",
+  },
+];
+---
+
+<BaseLayout
+  title="Applied AI & Intelligent Automation | Surya Lenka"
+  description="Applied AI, RAG, MCP, agentic AI, multimodal models, API integration, and intelligent automation expertise of Surya Lenka."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Expertise · 06</p>
+      <h1>Applied AI and automation built around real-world technical problems.</h1>
+      <p class="intro">
+        My focus is not AI for show. It is about using AI, APIs, tools, and
+        workflows to make support, troubleshooting, customer experience, and
+        operational work more useful and more efficient.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="shell">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Applied AI focus</p>
+          <h2>Connect intelligence to useful work.</h2>
+        </div>
+
+        <p>
+          The strongest AI solutions are grounded in real context, connected to
+          useful tools, and designed around clear human outcomes rather than
+          generic automation.
+        </p>
+      </div>
+
+      <div class="focus-grid">
+        {focusAreas.map((area, index) => (
+          <article class="focus-card">
+            <span>0{index + 1}</span>
+            <h3>{area.title}</h3>
+            <p>{area.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="workflow-section">
+    <div class="shell workflow-layout">
+      <div>
+        <p class="section-label">How I approach AI projects</p>
+        <h2>Start with a useful workflow, then bring in the right intelligence.</h2>
+        <p>
+          Practical AI works best when it has access to the right context,
+          supports a clear decision or action, and fits naturally into the
+          workflow of the people using it.
+        </p>
+      </div>
+
+      <div class="workflow-list">
+        {workflowSteps.map((step, index) => (
+          <div class="workflow-step">
+            <span>{index + 1}</span>
+            <p>{step}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section">
+    <div class="shell">
+      <div class="projects-heading">
+        <div>
+          <p class="section-label">Current applied AI work</p>
+          <h2>Ideas moving from concept to useful prototypes.</h2>
+        </div>
+
+        <a href="/projects/">View all projects →</a>
+      </div>
+
+      <div class="project-grid">
+        {projects.map((project) => (
+          <a class="project-card" href={project.href}>
+            <h3>{project.title}</h3>
+            <p>{project.text}</p>
+            <span>Explore project →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="next-section">
+    <div class="shell next-card">
+      <div>
+        <p class="section-label">Explore the full picture</p>
+        <h2>Unified Communications, Contact Center, architecture, and AI.</h2>
+        <p>
+          Return to the Expertise overview to see how all six areas connect.
+        </p>
+      </div>
+
+      <a href="/expertise/">View Expertise Overview →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .shell {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .page-hero {
+    padding: 92px 0 70px;
+    background:
+      radial-gradient(circle at 84% 16%, rgba(196, 230, 208, 0.72), transparent 24rem),
+      var(--page-bg);
+  }
+
+  .eyebrow,
+  .section-label {
+    margin: 0;
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    max-width: 960px;
+    margin: 16px 0 22px;
+    font-size: clamp(2.7rem, 5.5vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+  }
+
+  .intro {
+    max-width: 800px;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  .content-section {
+    padding: 84px 0 96px;
+    background: #ffffff;
+  }
+
+  .section-heading,
+  .projects-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.65fr);
+    gap: 64px;
+    align-items: end;
+    margin-bottom: 40px;
+  }
+
+  .section-heading h2,
+  .workflow-layout h2,
+  .projects-heading h2,
+  .next-card h2 {
+    margin: 10px 0 0;
+    font-size: clamp(2rem, 3.8vw, 3.1rem);
+    line-height: 1.12;
+    letter-spacing: -0.05em;
+  }
+
+  .section-heading > p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .focus-card {
+    min-height: 245px;
+    padding: 27px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--page-bg);
+  }
+
+  .focus-card > span {
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.76rem;
+  }
+
+  .focus-card h3 {
+    margin: 24px 0 10px;
+    font-size: 1.17rem;
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+  }
+
+  .focus-card p {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .workflow-section {
+    padding: 84px 0;
+    color: #ffffff;
+    background: #18281f;
+  }
+
+  .workflow-section .section-label {
+    color: #a7d8bb;
+  }
+
+  .workflow-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.8fr);
+    gap: 80px;
+    align-items: start;
+  }
+
+  .workflow-layout > div > p:not(.section-label) {
+    max-width: 560px;
+    margin: 18px 0 0;
+    color: #c9d8cd;
+  }
+
+  .workflow-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .workflow-step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .workflow-step span {
+    display: grid;
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+    place-items: center;
+    border-radius: 50%;
+    color: #18281f;
+    background: #a7d8bb;
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .workflow-step p {
+    margin: 2px 0 0;
+    color: #d8e3db;
+    font-size: 0.93rem;
+  }
+
+  .projects-section {
+    padding: 84px 0;
+    background: var(--page-bg);
+  }
+
+  .projects-heading a {
+    justify-self: end;
+    color: var(--green);
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .project-card {
+    min-height: 220px;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    color: var(--text);
+    background: #ffffff;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(36, 114, 79, 0.42);
+    box-shadow: var(--shadow);
+  }
+
+  .project-card h3 {
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+    letter-spacing: -0.04em;
+  }
+
+  .project-card p {
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .project-card span {
+    display: inline-block;
+    margin-top: 17px;
+    color: var(--green);
+    font-size: 0.84rem;
+    font-weight: 800;
+  }
+
+  .next-section {
+    padding: 84px 0;
+    background: #ffffff;
+  }
+
+  .next-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 28px;
+    padding: 38px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--page-bg);
+  }
+
+  .next-card h2 {
+    font-size: 2rem;
+  }
+
+  .next-card p:not(.section-label) {
+    max-width: 650px;
+    margin: 14px 0 0;
+    color: var(--muted);
+  }
+
+  .next-card a {
+    flex: 0 0 auto;
+    padding: 13px 17px;
+    border-radius: 9px;
+    color: #ffffff;
+    background: var(--green-dark);
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .next-card a:hover {
+    background: var(--green);
+  }
+
+  @media (max-width: 900px) {
+    .focus-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-heading,
+    .workflow-layout,
+    .projects-heading {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .projects-heading a {
+      justify-self: start;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .focus-grid,
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .next-card {
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 26px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .shell {
+      width: min(100% - 28px, 1120px);
+    }
+
+    .page-hero,
+    .content-section,
+    .workflow-section,
+    .projects-section,
+    .next-section {
+      padding: 64px 0;
+    }
+  }
+</style>
