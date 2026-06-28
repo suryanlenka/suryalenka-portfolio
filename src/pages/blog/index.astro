@@ -1,0 +1,273 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const plannedPosts = [
+  {
+    category: "SIP & Telephony",
+    title: "How to approach a complex SIP troubleshooting issue",
+    text: "A practical way to think through signaling, call flow, dependencies, and evidence during investigation.",
+  },
+  {
+    category: "Contact Center Architecture",
+    title: "Designing IVR flows that reduce customer frustration",
+    text: "How routing logic, prompts, fallbacks, and customer intent shape a better interaction experience.",
+  },
+  {
+    category: "Applied AI",
+    title: "Why customer context matters across voice, email, and chat",
+    text: "Lessons behind SupportBuddy and the value of connected customer interaction history.",
+  },
+];
+---
+
+<BaseLayout
+  title="Blog | Surya Lenka"
+  description="Technical blog by Surya Lenka on SIP, Contact Center architecture, AI, automation, and enterprise communication systems."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Blog</p>
+      <h1>Practical writing on communication systems, architecture, and AI.</h1>
+      <p class="intro">
+        This blog will share technical lessons, design thinking, troubleshooting
+        approaches, and practical ideas from enterprise communication and
+        customer experience work.
+      </p>
+    </div>
+  </section>
+
+  <section class="posts-section">
+    <div class="shell">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Articles in preparation</p>
+          <h2>Useful notes before the first post is published.</h2>
+        </div>
+
+        <p>
+          Future articles will be added as separate Markdown files, so the blog
+          can grow without changing the website structure.
+        </p>
+      </div>
+
+      <div class="posts-grid">
+        {plannedPosts.map((post, index) => (
+          <article class="post-card">
+            <span>0{index + 1}</span>
+            <p class="category">{post.category}</p>
+            <h3>{post.title}</h3>
+            <p>{post.text}</p>
+            <small>Coming soon</small>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="insights-section">
+    <div class="shell insight-card">
+      <div>
+        <p class="section-label">Technical notes</p>
+        <h2>Explore the broader topics I plan to write about.</h2>
+        <p>
+          Visit Insights for the main themes behind the upcoming articles.
+        </p>
+      </div>
+
+      <a href="/insights/">Explore Insights →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .shell {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .page-hero {
+    padding: 92px 0 70px;
+    background:
+      radial-gradient(circle at 84% 16%, rgba(196, 230, 208, 0.72), transparent 24rem),
+      var(--page-bg);
+  }
+
+  .eyebrow,
+  .section-label,
+  .category {
+    margin: 0;
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    max-width: 940px;
+    margin: 16px 0 22px;
+    font-size: clamp(2.7rem, 5.5vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+  }
+
+  .intro {
+    max-width: 790px;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  .posts-section,
+  .insights-section {
+    padding: 84px 0;
+  }
+
+  .posts-section {
+    background: #ffffff;
+  }
+
+  .insights-section {
+    background: #18281f;
+  }
+
+  .section-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.65fr);
+    gap: 64px;
+    align-items: end;
+    margin-bottom: 40px;
+  }
+
+  .section-heading h2,
+  .insight-card h2 {
+    margin: 10px 0 0;
+    font-size: clamp(2rem, 3.8vw, 3.1rem);
+    line-height: 1.12;
+    letter-spacing: -0.05em;
+  }
+
+  .section-heading > p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .post-card {
+    min-height: 290px;
+    padding: 27px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--page-bg);
+  }
+
+  .post-card > span {
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.76rem;
+  }
+
+  .category {
+    margin-top: 26px;
+  }
+
+  .post-card h3 {
+    margin: 12px 0 10px;
+    font-size: 1.16rem;
+    line-height: 1.22;
+    letter-spacing: -0.035em;
+  }
+
+  .post-card p:not(.category) {
+    margin-bottom: 18px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .post-card small {
+    color: #46604f;
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .insight-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 28px;
+    padding: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 18px;
+    color: #ffffff;
+    background: #21342a;
+  }
+
+  .insight-card .section-label {
+    color: #a7d8bb;
+  }
+
+  .insight-card h2 {
+    font-size: 2rem;
+  }
+
+  .insight-card p:not(.section-label) {
+    max-width: 680px;
+    margin: 14px 0 0;
+    color: #c9d8cd;
+  }
+
+  .insight-card a {
+    flex: 0 0 auto;
+    padding: 13px 17px;
+    border-radius: 9px;
+    color: #173422;
+    background: #a7d8bb;
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  @media (max-width: 850px) {
+    .section-heading {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .insight-card {
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 26px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .shell {
+      width: min(100% - 28px, 1120px);
+    }
+
+    .page-hero,
+    .posts-section,
+    .insights-section {
+      padding: 64px 0;
+    }
+  }
+</style>

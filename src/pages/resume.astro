@@ -1,0 +1,306 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const summary = [
+  "20 years in Unified Communications and Contact Center technology",
+  "Current Team Lead for MCX & CloudLink",
+  "Experience across HCL, Avaya, and Mitel",
+  "Strong background in SIP, CTI, IVR architecture, systems, automation, and applied AI",
+];
+
+const sections = [
+  {
+    title: "Professional Experience",
+    text: "Leadership and engineering work across Unified Communications, Contact Center platforms, CloudLink, MCX, customer workflows, complex troubleshooting, and technical escalations.",
+    href: "/profile/experience/",
+  },
+  {
+    title: "Technical Expertise",
+    text: "UC and Contact Center platforms, IVR and solution architecture, SIP and CTI, systems and networking, DevOps practices, and applied AI.",
+    href: "/expertise/",
+  },
+  {
+    title: "Education & Certifications",
+    text: "MS from BITS Pilani, B.Tech in Electronics and Telecommunication Engineering, AWS Certified Solutions Architect, and Microsoft Azure Administrator.",
+    href: "/profile/education/",
+  },
+];
+---
+
+<BaseLayout
+  title="Resume | Surya Lenka"
+  description="Resume overview of Surya Lenka, Technical Lead in Unified Communications, Contact Center, architecture, automation, and applied AI."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Resume</p>
+      <h1>Professional profile at a glance.</h1>
+      <p class="intro">
+        A concise overview of my experience, technical strengths, education,
+        certifications, and the areas where I create value.
+      </p>
+    </div>
+  </section>
+
+  <section class="resume-section">
+    <div class="shell">
+      <div class="resume-card">
+        <div class="resume-heading">
+          <div>
+            <p class="section-label">Surya Lenka</p>
+            <h2>Technical Lead | UC | Contact Center | Architecture | Applied AI</h2>
+          </div>
+
+          <span class="status-pill">PDF coming soon</span>
+        </div>
+
+        <div class="summary-list">
+          {summary.map((item) => (
+            <div>
+              <span>✓</span>
+              <p>{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="section-grid">
+        {sections.map((section) => (
+          <a class="section-card" href={section.href}>
+            <h3>{section.title}</h3>
+            <p>{section.text}</p>
+            <span>Explore section →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="download-section">
+    <div class="shell download-card">
+      <div>
+        <p class="section-label">Downloadable resume</p>
+        <h2>A PDF resume will be added here before the public launch.</h2>
+        <p>
+          Once your final resume PDF is ready, we will place it in the public
+          folder and connect a download button here.
+        </p>
+      </div>
+
+      <span class="status-pill">Coming soon</span>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .shell {
+    width: min(1080px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .page-hero {
+    padding: 92px 0 70px;
+    background:
+      radial-gradient(circle at 84% 16%, rgba(196, 230, 208, 0.72), transparent 24rem),
+      var(--page-bg);
+  }
+
+  .eyebrow,
+  .section-label {
+    margin: 0;
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    max-width: 900px;
+    margin: 16px 0 22px;
+    font-size: clamp(2.7rem, 5.5vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+  }
+
+  .intro {
+    max-width: 760px;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  .resume-section {
+    padding: 84px 0;
+    background: #ffffff;
+  }
+
+  .resume-card {
+    padding: 34px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--page-bg);
+  }
+
+  .resume-heading,
+  .download-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 28px;
+  }
+
+  .resume-heading h2,
+  .download-card h2 {
+    margin: 10px 0 0;
+    max-width: 760px;
+    font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+    line-height: 1.15;
+    letter-spacing: -0.05em;
+  }
+
+  .status-pill {
+    flex: 0 0 auto;
+    padding: 8px 11px;
+    border-radius: 999px;
+    color: #355142;
+    background: var(--green-soft);
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .summary-list {
+    display: grid;
+    gap: 13px;
+    margin-top: 34px;
+  }
+
+  .summary-list div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .summary-list span {
+    color: var(--green);
+    font-weight: 800;
+  }
+
+  .summary-list p {
+    margin: 0;
+    color: #405047;
+    font-size: 0.94rem;
+  }
+
+  .section-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 24px;
+  }
+
+  .section-card {
+    min-height: 230px;
+    padding: 26px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    color: var(--text);
+    background: #ffffff;
+    text-decoration: none;
+    transition: 0.2s ease;
+  }
+
+  .section-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(36, 114, 79, 0.42);
+    box-shadow: var(--shadow);
+  }
+
+  .section-card h3 {
+    margin-bottom: 12px;
+    font-size: 1.15rem;
+    letter-spacing: -0.035em;
+  }
+
+  .section-card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .section-card span {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--green);
+    font-size: 0.84rem;
+    font-weight: 800;
+  }
+
+  .download-section {
+    padding: 84px 0;
+    color: #ffffff;
+    background: #18281f;
+  }
+
+  .download-card {
+    padding: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 18px;
+    background: #21342a;
+  }
+
+  .download-card .section-label {
+    color: #a7d8bb;
+  }
+
+  .download-card p:not(.section-label) {
+    max-width: 680px;
+    margin: 14px 0 0;
+    color: #c9d8cd;
+  }
+
+  .download-card .status-pill {
+    color: #173422;
+    background: #a7d8bb;
+  }
+
+  @media (max-width: 800px) {
+    .section-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .resume-heading,
+    .download-card {
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 26px;
+    }
+
+    .resume-card {
+      padding: 26px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .shell {
+      width: min(100% - 28px, 1080px);
+    }
+
+    .page-hero,
+    .resume-section,
+    .download-section {
+      padding: 64px 0;
+    }
+  }
+</style>
