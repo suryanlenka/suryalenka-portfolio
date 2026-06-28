@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Save the Baby Dragon</title>
+    <meta name="description" content="Help a cute baby dragon collect magical gems and dodge angry birds in this fun browser game for kids." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Save the Baby Dragon" />
+    <meta property="og:description" content="Help a cute baby dragon collect magical gems and dodge angry birds in this fun browser game for kids." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Save the Baby Dragon" />
+    <meta name="twitter:description" content="Help a cute baby dragon collect magical gems and dodge angry birds in this fun browser game for kids." />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%89%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Game container holds the sky, the HUD, all screens, and the play field -->
+    <div id="game">
+      <!-- Moving cloud layer (decorative, gently floats) -->
+      <div id="clouds" aria-hidden="true"></div>
+
+      <!-- Heads-up display: score and lives, shown during gameplay -->
+      <div id="hud" class="hidden">
+        <div class="hud-pill" id="score-pill">Score: <span id="score">0</span></div>
+        <div class="hud-pill" id="lives-pill">Lives: <span id="lives">❤️❤️❤️</span></div>
+      </div>
+
+      <!-- Floating bonus message ("Dragon Master!" etc.) -->
+      <div id="banner" class="hidden"></div>
+
+      <!-- The dragon, gems, birds and sparkles are added here by JavaScript -->
+      <div id="playfield"></div>
+
+      <!-- WELCOME SCREEN -->
+      <div id="welcome-screen" class="screen">
+        <div class="card">
+          <div class="title-dragon">🐉</div>
+          <h1>Save the Baby Dragon</h1>
+          <p>A cute baby dragon is learning to fly! Help it collect magical gems and dodge the angry birds.</p>
+          <div class="how-to">
+            <span>Move with <b>← ↑ ↓ →</b> or <b>W / A / S / D</b></span>
+            <span>💎 Gem = +1 &nbsp;•&nbsp; 🌟 Golden = +5</span>
+          </div>
+          <button class="btn" id="start-btn">Start Game</button>
+        </div>
+      </div>
+
+      <!-- GAME OVER SCREEN -->
+      <div id="gameover-screen" class="screen hidden">
+        <div class="card">
+          <div class="title-dragon">😢</div>
+          <h1>Game Over</h1>
+          <p class="final">Final Score: <span id="final-score">0</span></p>
+          <p id="final-message">Great flying, little dragon!</p>
+          <button class="btn" id="restart-btn">Play Again</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

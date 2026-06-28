@@ -1,0 +1,439 @@
+/* ============================================================
+   Save the Baby Dragon — styles
+   Bright, child-friendly cartoon look with soft rounded shapes.
+   ============================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --sky-top: #7ec8ff;
+  --sky-bottom: #c8f0ff;
+  --sun: #fff3b0;
+  --pink: #ff7eb6;
+  --pink-dark: #f74f95;
+  --green: #5fd06a;
+  --green-dark: #34a93f;
+  --text: #2b2b5e;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Baloo 2", "Comic Sans MS", system-ui, sans-serif;
+  overflow: hidden;
+  color: var(--text);
+}
+
+/* ---- Game stage: a centered responsive box that fills the screen ---- */
+#game {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to bottom, var(--sky-top) 0%, var(--sky-bottom) 100%);
+  user-select: none;
+}
+
+/* A warm sun glow in the corner */
+#game::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--sun) 0%, rgba(255, 243, 176, 0) 70%);
+  pointer-events: none;
+}
+
+/* ============================================================
+   Clouds — gentle floating animation
+   ============================================================ */
+#clouds {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cloud {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+  opacity: 0.9;
+  filter: drop-shadow(0 8px 0 rgba(255, 255, 255, 0.6));
+}
+
+/* Puffy cloud built from pseudo-elements */
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+}
+.cloud::before {
+  width: 60%;
+  height: 80%;
+  top: -30%;
+  left: 12%;
+}
+.cloud::after {
+  width: 50%;
+  height: 70%;
+  top: -18%;
+  right: 10%;
+}
+
+/* Slow drift across the sky + a soft up/down bob */
+@keyframes drift {
+  from { transform: translateX(-30vw); }
+  to   { transform: translateX(120vw); }
+}
+@keyframes bob {
+  0%, 100% { margin-top: 0; }
+  50%      { margin-top: 14px; }
+}
+
+/* ============================================================
+   HUD — score and lives
+   ============================================================ */
+#hud {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 20;
+}
+
+.hud-pill {
+  background: rgba(255, 255, 255, 0.9);
+  border: 3px solid #ffffff;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: clamp(16px, 2.4vw, 24px);
+  font-weight: 800;
+  box-shadow: 0 4px 0 rgba(43, 43, 94, 0.15);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   Bonus banner ("Dragon Master!" etc.)
+   ============================================================ */
+#banner {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  background: var(--pink);
+  color: #fff;
+  font-size: clamp(20px, 4vw, 40px);
+  font-weight: 800;
+  padding: 12px 28px;
+  border-radius: 999px;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 0 rgba(247, 79, 149, 0.4);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+  animation: pop-banner 2s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes pop-banner {
+  0%   { transform: translateX(-50%) scale(0.4); opacity: 0; }
+  15%  { transform: translateX(-50%) scale(1.1); opacity: 1; }
+  25%  { transform: translateX(-50%) scale(1); }
+  80%  { opacity: 1; }
+  100% { transform: translateX(-50%) scale(1) translateY(-20px); opacity: 0; }
+}
+
+/* ============================================================
+   Playfield + game objects (dragon, gems, birds, sparkles)
+   ============================================================ */
+#playfield {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+/* ---- The dragon ---- */
+#dragon {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  font-size: 72px;
+  line-height: 1;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.18));
+  transition: none;
+  animation: flap 0.5s ease-in-out infinite;
+  will-change: left, top;
+}
+
+/* Gentle wing-flap / hover bobbing for the dragon */
+@keyframes flap {
+  0%, 100% { margin-top: 0; }
+  50%      { margin-top: -10px; }
+}
+
+/* ---- Falling gems ---- */
+.gem {
+  position: absolute;
+  font-size: 40px;
+  line-height: 1;
+  text-align: center;
+  filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.15));
+  animation: spin 1.6s linear infinite;
+  will-change: top;
+}
+
+.gem.golden {
+  font-size: 46px;
+  filter: drop-shadow(0 0 10px gold) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes spin {
+  0%, 100% { transform: rotate(-12deg) scale(1); }
+  50%      { transform: rotate(12deg) scale(1.08); }
+}
+
+/* ---- Birds flying across ---- */
+.bird {
+  position: absolute;
+  font-size: 44px;
+  line-height: 1;
+  text-align: center;
+  filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.18));
+  animation: bird-bob 0.4s ease-in-out infinite;
+  will-change: left;
+}
+
+.bird.flip {
+  transform: scaleX(-1);
+}
+
+@keyframes bird-bob {
+  0%, 100% { margin-top: 0; }
+  50%      { margin-top: -8px; }
+}
+
+/* ---- Sparkle particles when collecting a gem ---- */
+.sparkle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: gold;
+  pointer-events: none;
+  z-index: 15;
+  animation: sparkle-fly 0.6s ease-out forwards;
+}
+
+@keyframes sparkle-fly {
+  0%   { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
+}
+
+/* Quick flash when the dragon is hit */
+.dragon-hurt {
+  animation: flap 0.5s ease-in-out infinite, hurt-flash 0.5s linear 3 !important;
+}
+
+@keyframes hurt-flash {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.25; }
+}
+
+/* ============================================================
+   Screens (welcome + game over)
+   ============================================================ */
+.screen {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 6px solid #fff;
+  border-radius: 32px;
+  padding: 36px 32px;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 14px 0 rgba(43, 43, 94, 0.15), 0 20px 40px rgba(0, 0, 0, 0.15);
+  animation: card-in 0.4s ease;
+}
+
+@keyframes card-in {
+  from { transform: scale(0.85) translateY(20px); opacity: 0; }
+  to   { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.title-dragon {
+  font-size: 80px;
+  line-height: 1;
+  animation: bob 2s ease-in-out infinite;
+}
+
+.card h1 {
+  font-size: clamp(28px, 6vw, 44px);
+  color: var(--pink-dark);
+  margin: 6px 0 12px;
+  text-shadow: 0 3px 0 rgba(247, 79, 149, 0.18);
+}
+
+.card p {
+  font-size: clamp(15px, 2.6vw, 19px);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.card .final {
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 800;
+  color: var(--text);
+}
+
+#final-message {
+  font-weight: 700;
+  color: var(--pink-dark);
+}
+
+.how-to {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #eef7ff;
+  border-radius: 18px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-size: clamp(13px, 2.4vw, 17px);
+  font-weight: 600;
+}
+
+/* ---- Soft rounded buttons ---- */
+.btn {
+  font-family: inherit;
+  font-size: clamp(18px, 3.4vw, 24px);
+  font-weight: 800;
+  color: #fff;
+  background: var(--green);
+  border: none;
+  border-radius: 999px;
+  padding: 14px 40px;
+  cursor: pointer;
+  box-shadow: 0 6px 0 var(--green-dark);
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.15s ease;
+}
+
+.btn:hover {
+  background: #6ee07a;
+}
+
+.btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 var(--green-dark);
+}
+
+/* ============================================================
+   Celebration — confetti and fireworks at score 100
+   ============================================================ */
+.celebration-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 35;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Confetti: small falling colored rectangles */
+.confetti {
+  position: absolute;
+  top: -10px;
+  width: 8px;
+  height: 14px;
+  border-radius: 2px;
+  opacity: 0.95;
+  animation: confetti-fall 2.5s ease-in forwards;
+}
+
+@keyframes confetti-fall {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0.3; }
+}
+
+/* Firework burst: expanding circles */
+.firework {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: firework-pop 1.2s ease-out forwards;
+}
+
+@keyframes firework-pop {
+  0%   { transform: scale(0); opacity: 1; }
+  50%  { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+/* Firework shell: the main burst circle */
+.firework-shell {
+  position: absolute;
+  border-radius: 50%;
+  animation: shell-burst 0.9s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes shell-burst {
+  0%   { transform: scale(0); opacity: 1; }
+  60%  { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* Big win banner that appears during celebration */
+.win-banner {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  background: linear-gradient(135deg, #ffd700, #ff7eb6);
+  color: #fff;
+  font-size: clamp(24px, 6vw, 56px);
+  font-weight: 800;
+  padding: 14px 36px;
+  border-radius: 999px;
+  border: 5px solid #fff;
+  box-shadow: 0 10px 0 rgba(247, 79, 149, 0.4);
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
+  animation: win-pop 2.5s ease forwards;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+@keyframes win-pop {
+  0%   { transform: translateX(-50%) scale(0.3); opacity: 0; }
+  15%  { transform: translateX(-50%) scale(1.15); opacity: 1; }
+  25%  { transform: translateX(-50%) scale(1); }
+  80%  { opacity: 1; }
+  100% { transform: translateX(-50%) scale(1) translateY(-18px); opacity: 0; }
+}
+
+/* Utility */
+.hidden {
+  display: none !important;
+}
