@@ -6,7 +6,8 @@ const ideas = [
     number: "01",
     title: "Save the Baby Dragon",
     text: "A small family-friendly browser game created as a creative project for my daughter.",
-    status: "Coming soon",
+    status: "Play now",
+    href: "/fun-world/save-the-baby-dragon/",
   },
   {
     number: "02",
@@ -54,21 +55,36 @@ const ideas = [
       </div>
 
       <div class="projects-grid">
-        {ideas.map((idea) => (
-          <article class="project-card">
-            <div class="card-top">
-              <span>{idea.number}</span>
-              <small>{idea.status}</small>
-            </div>
+        {ideas.map((idea) =>
+          idea.href ? (
+            <a class="project-card playable-card" href={idea.href}>
+              <div class="card-top">
+                <span>{idea.number}</span>
+                <small>{idea.status}</small>
+              </div>
 
-            <div class="dragon-icon" aria-hidden="true">
-              {idea.number === "01" ? "🐉" : idea.number === "02" ? "🎮" : "✨"}
-            </div>
+              <div class="dragon-icon" aria-hidden="true">🐉</div>
 
-            <h3>{idea.title}</h3>
-            <p>{idea.text}</p>
-          </article>
-        ))}
+              <h3>{idea.title}</h3>
+              <p>{idea.text}</p>
+              <strong class="play-link">Play the game →</strong>
+            </a>
+          ) : (
+            <article class="project-card">
+              <div class="card-top">
+                <span>{idea.number}</span>
+                <small>{idea.status}</small>
+              </div>
+
+              <div class="dragon-icon" aria-hidden="true">
+                {idea.number === "02" ? "🎮" : "✨"}
+              </div>
+
+              <h3>{idea.title}</h3>
+              <p>{idea.text}</p>
+            </article>
+          )
+        )}
       </div>
     </div>
   </section>
@@ -76,15 +92,17 @@ const ideas = [
   <section class="highlight-section">
     <div class="shell highlight-card">
       <div>
-        <p class="section-label">Featured future project</p>
+        <p class="section-label">Featured game</p>
         <h2>Save the Baby Dragon</h2>
         <p>
-          A playful browser game being prepared for a clean standalone release.
-          Once it is ready, this page will link directly to the live game.
+          A playful browser game where you help a baby dragon collect magical
+          gems and avoid danger.
         </p>
       </div>
 
-      <span class="status-pill">Coming soon</span>
+      <a class="play-button" href="/fun-world/save-the-baby-dragon/">
+        Play now →
+      </a>
     </div>
   </section>
 </BaseLayout>
@@ -172,7 +190,23 @@ const ideas = [
     padding: 28px;
     border: 1px solid var(--line);
     border-radius: 16px;
+    color: var(--text);
     background: var(--page-bg);
+  }
+
+  .playable-card {
+    border-color: rgba(36, 114, 79, 0.35);
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .playable-card:hover {
+    border-color: var(--green);
+    box-shadow: var(--shadow);
+    transform: translateY(-4px);
   }
 
   .card-top {
@@ -214,6 +248,13 @@ const ideas = [
     font-size: 0.92rem;
   }
 
+  .play-link {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--green);
+    font-size: 0.88rem;
+  }
+
   .highlight-section {
     padding: 84px 0;
     background: #18281f;
@@ -245,10 +286,19 @@ const ideas = [
     color: #c9d8cd;
   }
 
-  .status-pill {
+  .play-button {
     flex: 0 0 auto;
+    padding: 13px 18px;
+    border-radius: 9px;
     color: #173422;
     background: #a7d8bb;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .play-button:hover {
+    background: #c0e8ce;
   }
 
   @media (max-width: 850px) {
