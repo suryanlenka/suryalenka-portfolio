@@ -42,6 +42,7 @@ const navItems = [
     items: [
       { label: "Explore Fun World", href: "/fun-world/" },
       { label: "Save the Baby Dragon", href: "/fun-world/save-the-baby-dragon/" },
+      { label: "The Haunted Mansion", href: "/fun-world/haunted-mansion/" },
     ],
   },
 ];
@@ -242,18 +243,18 @@ const navItems = [
     background: #eef5f0;
   }
 
-.nav-dropdown {
-  position: relative;
-}
+  .nav-dropdown {
+    position: relative;
+  }
 
-.nav-dropdown::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 14px;
-}
+  .nav-dropdown::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 14px;
+  }
 
   .nav-dropdown summary::-webkit-details-marker,
   .mobile-menu summary::-webkit-details-marker,
@@ -272,41 +273,41 @@ const navItems = [
     transform: rotate(180deg);
   }
 
-.dropdown-panel {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 0;
-  width: 285px;
-  padding: 10px;
-  border: 1px solid #dfe7e1;
-  border-radius: 14px;
-  background: #ffffff;
-  box-shadow: 0 18px 45px rgba(16, 37, 25, 0.14);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(-7px);
-  transition:
-    opacity 0.16s ease,
-    transform 0.16s ease,
-    visibility 0s linear 0.16s;
-}
+  .dropdown-panel {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 285px;
+    padding: 10px;
+    border: 1px solid #dfe7e1;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 18px 45px rgba(16, 37, 25, 0.14);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-7px);
+    transition:
+      opacity 0.16s ease,
+      transform 0.16s ease,
+      visibility 0s linear 0.16s;
+  }
 
-.nav-dropdown[open] .dropdown-panel {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0);
-  transition:
-    opacity 0.16s ease,
-    transform 0.16s ease;
-}
+  .nav-dropdown[open] .dropdown-panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition:
+      opacity 0.16s ease,
+      transform 0.16s ease;
+  }
 
-.nav-dropdown[data-closing="true"] .dropdown-panel {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-7px);
-}
+  .nav-dropdown[data-closing="true"] .dropdown-panel {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-7px);
+  }
 
   .dropdown-panel a {
     display: block;

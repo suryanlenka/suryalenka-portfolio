@@ -8,18 +8,22 @@ const ideas = [
     text: "A small family-friendly browser game created as a creative project for my daughter.",
     status: "Play now",
     href: "/fun-world/save-the-baby-dragon/",
+    icon: "🐉",
   },
   {
     number: "02",
-    title: "Interactive Learning Games",
-    text: "Future mini-games and playful experiments that combine creativity, storytelling, and simple technology.",
-    status: "Future idea",
+    title: "The Haunted Mansion",
+    text: "A spooky but family-friendly adventure game about finding lost lanterns inside a mysterious mansion.",
+    status: "Play now",
+    href: "/fun-world/haunted-mansion/",
+    icon: "🏰",
   },
   {
     number: "03",
     title: "Creative AI Experiments",
     text: "Small visual, storytelling, and AI-assisted projects built for curiosity and fun.",
     status: "Future idea",
+    icon: "✨",
   },
 ];
 ---
@@ -63,7 +67,7 @@ const ideas = [
                 <small>{idea.status}</small>
               </div>
 
-              <div class="dragon-icon" aria-hidden="true">🐉</div>
+              <div class="game-icon" aria-hidden="true">{idea.icon}</div>
 
               <h3>{idea.title}</h3>
               <p>{idea.text}</p>
@@ -76,9 +80,7 @@ const ideas = [
                 <small>{idea.status}</small>
               </div>
 
-              <div class="dragon-icon" aria-hidden="true">
-                {idea.number === "02" ? "🎮" : "✨"}
-              </div>
+              <div class="game-icon" aria-hidden="true">{idea.icon}</div>
 
               <h3>{idea.title}</h3>
               <p>{idea.text}</p>
@@ -93,14 +95,14 @@ const ideas = [
     <div class="shell highlight-card">
       <div>
         <p class="section-label">Featured game</p>
-        <h2>Save the Baby Dragon</h2>
+        <h2>The Haunted Mansion</h2>
         <p>
-          A playful browser game where you help a baby dragon collect magical
-          gems and avoid danger.
+          Explore a spooky mansion, find glowing lanterns, unlock rooms, and
+          help a tiny ghost before time runs out.
         </p>
       </div>
 
-      <a class="play-button" href="/fun-world/save-the-baby-dragon/">
+      <a class="play-button" href="/fun-world/haunted-mansion/">
         Play now →
       </a>
     </div>
@@ -231,7 +233,7 @@ const ideas = [
     font-weight: 800;
   }
 
-  .dragon-icon {
+  .game-icon {
     margin-top: 34px;
     font-size: 2rem;
   }
