@@ -1,0 +1,424 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const projects = [
+  {
+    number: "01",
+    category: "Applied AI · Contact Center",
+    title: "SupportBuddy",
+    description:
+      "An AI Ticketing Intelligence concept designed to connect fragmented customer interactions across voice, email, and chat, giving agents relevant context before they respond.",
+    tags: ["AI Ticketing", "Customer Context", "Multi-channel"],
+    href: "/projects/supportbuddy/",
+  },
+  {
+    number: "02",
+    category: "Technical Troubleshooting",
+    title: "Log Parser",
+    description:
+      "A practical troubleshooting concept focused on making complex technical logs easier to interpret, correlate, and use during issue investigation.",
+    tags: ["Logs", "Analysis", "Automation"],
+    href: "/projects/log-parser/",
+  },
+  {
+    number: "03",
+    category: "Innovation · Vibeathon",
+    title: "Innovation & Vibeathon",
+    description:
+      "Applied AI and customer-support innovation work developed around real operational challenges in enterprise communication environments.",
+    tags: ["Innovation", "AI", "Customer Experience"],
+    href: "/projects/innovation/",
+  },
+];
+
+const approach = [
+  {
+    title: "Start with a real problem",
+    text: "Each project begins with a genuine support, customer-experience, or operational challenge.",
+  },
+  {
+    title: "Keep the outcome practical",
+    text: "The focus is on useful workflows, clearer decisions, and measurable improvement rather than technology for its own sake.",
+  },
+  {
+    title: "Build for future growth",
+    text: "Projects are designed as modular concepts that can evolve into richer tools, integrations, or AI-enabled workflows.",
+  },
+];
+---
+
+<BaseLayout
+  title="Projects | Surya Lenka"
+  description="Projects and innovation work by Surya Lenka, including SupportBuddy, Log Parser, and applied AI concepts for enterprise communication and customer support."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Projects & innovation</p>
+      <h1>Ideas built around real technical and customer experience problems.</h1>
+      <p class="intro">
+        A growing collection of practical experiments, prototypes, and concepts
+        exploring AI, automation, troubleshooting, and better customer support
+        experiences.
+      </p>
+    </div>
+  </section>
+
+  <section class="projects-section">
+    <div class="shell">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Featured work</p>
+          <h2>Projects with a clear purpose.</h2>
+        </div>
+
+        <p>
+          These projects reflect my interest in connecting deep technical
+          understanding with practical improvements for support teams, agents,
+          customers, and engineering workflows.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        {projects.map((project) => (
+          <a class="project-card" href={project.href}>
+            <div class="card-top">
+              <span>{project.number}</span>
+              <p>{project.category}</p>
+            </div>
+
+            <h3>{project.title}</h3>
+            <p class="project-description">{project.description}</p>
+
+            <div class="tag-list">
+              {project.tags.map((tag) => (
+                <span>{tag}</span>
+              ))}
+            </div>
+
+            <span class="explore-link">Explore project →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="approach-section">
+    <div class="shell">
+      <div class="approach-heading">
+        <p class="section-label">How I build</p>
+        <h2>Technical depth is useful when it leads to a better outcome.</h2>
+      </div>
+
+      <div class="approach-grid">
+        {approach.map((item, index) => (
+          <article>
+            <span>0{index + 1}</span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="future-section">
+    <div class="shell future-card">
+      <div>
+        <p class="section-label">More to come</p>
+        <h2>A portfolio that grows with each useful idea.</h2>
+        <p>
+          This section will continue to expand with new AI tools, automation
+          experiments, troubleshooting utilities, technical notes, and
+          customer-experience concepts.
+        </p>
+      </div>
+
+      <a href="/expertise/applied-ai/">Explore Applied AI →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .shell {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .page-hero {
+    padding: 92px 0 70px;
+    background:
+      radial-gradient(circle at 84% 16%, rgba(196, 230, 208, 0.72), transparent 24rem),
+      var(--page-bg);
+  }
+
+  .eyebrow,
+  .section-label {
+    margin: 0;
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    max-width: 940px;
+    margin: 16px 0 22px;
+    font-size: clamp(2.7rem, 5.5vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+  }
+
+  .intro {
+    max-width: 780px;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  .projects-section {
+    padding: 84px 0 96px;
+    background: #ffffff;
+  }
+
+  .section-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.65fr);
+    gap: 64px;
+    align-items: end;
+    margin-bottom: 40px;
+  }
+
+  .section-heading h2,
+  .approach-heading h2,
+  .future-card h2 {
+    margin: 10px 0 0;
+    font-size: clamp(2rem, 3.8vw, 3.1rem);
+    line-height: 1.12;
+    letter-spacing: -0.05em;
+  }
+
+  .section-heading > p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .project-card {
+    display: flex;
+    min-height: 400px;
+    flex-direction: column;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    color: var(--text);
+    background: var(--page-bg);
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(36, 114, 79, 0.42);
+    box-shadow: var(--shadow);
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .card-top > span,
+  .card-top p {
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .card-top p {
+    max-width: 175px;
+    margin: 0;
+    text-align: right;
+    line-height: 1.45;
+  }
+
+  .project-card h3 {
+    margin: 38px 0 12px;
+    font-size: 1.45rem;
+    letter-spacing: -0.045em;
+  }
+
+  .project-description {
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 28px;
+  }
+
+  .tag-list span {
+    padding: 7px 9px;
+    border-radius: 999px;
+    color: #365344;
+    background: var(--green-soft);
+    font-size: 0.74rem;
+    font-weight: 750;
+  }
+
+  .explore-link {
+    display: inline-block;
+    margin-top: 22px;
+    color: var(--green);
+    font-size: 0.85rem;
+    font-weight: 800;
+  }
+
+  .approach-section {
+    padding: 84px 0;
+    color: #ffffff;
+    background: #18281f;
+  }
+
+  .approach-section .section-label {
+    color: #a7d8bb;
+  }
+
+  .approach-heading {
+    max-width: 760px;
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 42px;
+  }
+
+  .approach-grid article {
+    padding: 24px 24px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+  }
+
+  .approach-grid span {
+    color: #a7d8bb;
+    font-family: "DM Mono", monospace;
+    font-size: 0.76rem;
+  }
+
+  .approach-grid h3 {
+    margin: 22px 0 10px;
+    font-size: 1.08rem;
+  }
+
+  .approach-grid p {
+    margin-bottom: 0;
+    color: #c9d8cd;
+    font-size: 0.9rem;
+  }
+
+  .future-section {
+    padding: 84px 0;
+    background: #ffffff;
+  }
+
+  .future-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 28px;
+    padding: 38px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--page-bg);
+  }
+
+  .future-card h2 {
+    font-size: 2rem;
+  }
+
+  .future-card p:not(.section-label) {
+    max-width: 680px;
+    margin: 14px 0 0;
+    color: var(--muted);
+  }
+
+  .future-card a {
+    flex: 0 0 auto;
+    padding: 13px 17px;
+    border-radius: 9px;
+    color: #ffffff;
+    background: var(--green-dark);
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .future-card a:hover {
+    background: var(--green);
+  }
+
+  @media (max-width: 900px) {
+    .section-heading {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-card {
+      min-height: 300px;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .approach-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .future-card {
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 26px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .shell {
+      width: min(100% - 28px, 1120px);
+    }
+
+    .page-hero,
+    .projects-section,
+    .approach-section,
+    .future-section {
+      padding: 64px 0;
+    }
+  }
+</style>

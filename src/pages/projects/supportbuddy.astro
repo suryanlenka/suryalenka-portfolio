@@ -1,0 +1,463 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const channels = [
+  {
+    title: "Voice",
+    text: "Call transcripts and interaction details are captured as part of the customer history.",
+  },
+  {
+    title: "Email",
+    text: "Relevant email conversations are linked to the same customer context.",
+  },
+  {
+    title: "Chat",
+    text: "Chat interactions become part of the active support journey instead of remaining isolated.",
+  },
+];
+
+const workflow = [
+  {
+    number: "01",
+    title: "Identify the customer",
+    text: "Use available identifiers such as phone number, email address, account context, and interaction timing.",
+  },
+  {
+    number: "02",
+    title: "Find relevant active context",
+    text: "Review open tickets and recent related interactions while excluding closed or irrelevant history.",
+  },
+  {
+    number: "03",
+    title: "Build an AI summary",
+    text: "Create a concise issue summary, recent activity timeline, and useful next-step context for the agent.",
+  },
+  {
+    number: "04",
+    title: "Surface it at the right moment",
+    text: "Deliver the result to the agent through an interaction workflow or screen-pop experience.",
+  },
+];
+
+const outcomes = [
+  "Less time spent searching across disconnected systems",
+  "Better context for follow-up interactions",
+  "More consistent customer experience across channels",
+  "Faster issue understanding for support agents",
+  "Clearer handoffs between teams and interactions",
+  "Confidence-based review for incomplete or ambiguous matches",
+];
+---
+
+<BaseLayout
+  title="SupportBuddy | Surya Lenka"
+  description="SupportBuddy is an AI Ticketing Intelligence concept that connects customer interactions across voice, email, and chat to provide useful agent context."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Project · Applied AI & Contact Center</p>
+      <h1>SupportBuddy: AI Ticketing Intelligence for better customer context.</h1>
+      <p class="intro">
+        SupportBuddy is a concept for connecting fragmented customer interactions
+        across voice, email, and chat so agents can understand the active issue
+        quickly, without manually piecing together the full history.
+      </p>
+
+      <div class="project-meta">
+        <span>AI Ticketing Intelligence</span>
+        <span>Multi-channel Context</span>
+        <span>Agent Experience</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="problem-section">
+    <div class="shell split-layout">
+      <div>
+        <p class="section-label">The problem</p>
+        <h2>Customer history is often fragmented across channels.</h2>
+      </div>
+
+      <div class="body-copy">
+        <p>
+          A customer may begin with a call, send a follow-up email, and later
+          contact support through chat. Those interactions can be stored in
+          separate places, leaving the next agent to search manually and rebuild
+          the story during a live conversation.
+        </p>
+        <p>
+          This creates repeated explanations for customers, slower resolution
+          for agents, and a less consistent support experience.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="solution-section">
+    <div class="shell">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">The approach</p>
+          <h2>Turn disconnected interactions into useful support context.</h2>
+        </div>
+
+        <p>
+          SupportBuddy uses available customer identifiers, interaction timing,
+          active-ticket context, and AI summarisation to help agents understand
+          the most relevant history before responding.
+        </p>
+      </div>
+
+      <div class="channel-grid">
+        {channels.map((channel, index) => (
+          <article class="channel-card">
+            <span>0{index + 1}</span>
+            <h3>{channel.title}</h3>
+            <p>{channel.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="flow-section">
+    <div class="shell">
+      <div class="flow-heading">
+        <p class="section-label">High-level workflow</p>
+        <h2>From interaction to agent-ready context.</h2>
+      </div>
+
+      <div class="workflow-grid">
+        {workflow.map((step) => (
+          <article class="workflow-card">
+            <span>{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="outcomes-section">
+    <div class="shell outcomes-layout">
+      <div>
+        <p class="section-label">Expected value</p>
+        <h2>Better support experiences without asking customers to start over.</h2>
+      </div>
+
+      <div class="outcome-list">
+        {outcomes.map((outcome) => (
+          <div>
+            <span>✓</span>
+            <p>{outcome}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="learning-section">
+    <div class="shell learning-card">
+      <div>
+        <p class="section-label">What this project explores</p>
+        <h2>Practical AI connected to a real support workflow.</h2>
+        <p>
+          SupportBuddy explores multi-channel correlation, AI summarisation,
+          customer identification, confidence scoring, ticket context, and
+          delivering useful information at the moment an agent needs it.
+        </p>
+      </div>
+
+      <a href="/projects/">Back to all projects →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .shell {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .page-hero {
+    padding: 92px 0 72px;
+    background:
+      radial-gradient(circle at 84% 16%, rgba(196, 230, 208, 0.72), transparent 24rem),
+      var(--page-bg);
+  }
+
+  .eyebrow,
+  .section-label {
+    margin: 0;
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    max-width: 980px;
+    margin: 16px 0 22px;
+    font-size: clamp(2.7rem, 5.5vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+  }
+
+  .intro {
+    max-width: 800px;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 28px;
+  }
+
+  .project-meta span {
+    padding: 8px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: #395444;
+    background: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 750;
+  }
+
+  .problem-section,
+  .solution-section,
+  .flow-section,
+  .outcomes-section,
+  .learning-section {
+    padding: 84px 0;
+  }
+
+  .problem-section,
+  .flow-section,
+  .learning-section {
+    background: #ffffff;
+  }
+
+  .solution-section {
+    background: var(--page-bg);
+  }
+
+  .outcomes-section {
+    color: #ffffff;
+    background: #18281f;
+  }
+
+  .split-layout,
+  .section-heading,
+  .outcomes-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.65fr);
+    gap: 64px;
+    align-items: start;
+  }
+
+  .split-layout h2,
+  .section-heading h2,
+  .flow-heading h2,
+  .outcomes-layout h2,
+  .learning-card h2 {
+    margin: 10px 0 0;
+    font-size: clamp(2rem, 3.8vw, 3.1rem);
+    line-height: 1.12;
+    letter-spacing: -0.05em;
+  }
+
+  .body-copy p,
+  .section-heading > p {
+    color: var(--muted);
+  }
+
+  .body-copy p:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-heading {
+    align-items: end;
+    margin-bottom: 40px;
+  }
+
+  .section-heading > p {
+    margin: 0;
+  }
+
+  .channel-grid,
+  .workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .channel-card,
+  .workflow-card {
+    padding: 27px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: #ffffff;
+  }
+
+  .channel-card {
+    min-height: 230px;
+  }
+
+  .channel-card > span,
+  .workflow-card > span {
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.76rem;
+  }
+
+  .channel-card h3,
+  .workflow-card h3 {
+    margin: 24px 0 10px;
+    font-size: 1.18rem;
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+  }
+
+  .channel-card p,
+  .workflow-card p {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 0.91rem;
+  }
+
+  .flow-heading {
+    max-width: 780px;
+    margin-bottom: 38px;
+  }
+
+  .workflow-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .workflow-card {
+    min-height: 255px;
+    background: var(--page-bg);
+  }
+
+  .outcomes-section .section-label {
+    color: #a7d8bb;
+  }
+
+  .outcome-list {
+    display: grid;
+    gap: 13px;
+  }
+
+  .outcome-list div {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .outcome-list span {
+    color: #a7d8bb;
+    font-weight: 800;
+  }
+
+  .outcome-list p {
+    margin: 0;
+    color: #d8e3db;
+    font-size: 0.93rem;
+  }
+
+  .learning-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 28px;
+    padding: 38px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--page-bg);
+  }
+
+  .learning-card h2 {
+    font-size: 2rem;
+  }
+
+  .learning-card p:not(.section-label) {
+    max-width: 680px;
+    margin: 14px 0 0;
+    color: var(--muted);
+  }
+
+  .learning-card a {
+    flex: 0 0 auto;
+    padding: 13px 17px;
+    border-radius: 9px;
+    color: #ffffff;
+    background: var(--green-dark);
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .learning-card a:hover {
+    background: var(--green);
+  }
+
+  @media (max-width: 900px) {
+    .split-layout,
+    .section-heading,
+    .outcomes-layout {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .channel-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .workflow-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 620px) {
+    .workflow-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .learning-card {
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 26px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .shell {
+      width: min(100% - 28px, 1120px);
+    }
+
+    .page-hero,
+    .problem-section,
+    .solution-section,
+    .flow-section,
+    .outcomes-section,
+    .learning-section {
+      padding: 64px 0;
+    }
+  }
+</style>

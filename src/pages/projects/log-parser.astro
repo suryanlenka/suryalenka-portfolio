@@ -1,0 +1,501 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const challenges = [
+  {
+    title: "Logs are noisy",
+    text: "Large technical logs contain repetitive events, low-value entries, and scattered signals that make manual investigation slow.",
+  },
+  {
+    title: "Context is distributed",
+    text: "Useful evidence may be spread across services, timestamps, components, devices, and related events.",
+  },
+  {
+    title: "Patterns are easy to miss",
+    text: "The real issue may appear as a sequence of small warnings or failures rather than one obvious error message.",
+  },
+];
+
+const workflow = [
+  {
+    number: "01",
+    title: "Ingest logs",
+    text: "Accept uploaded log files or technical output from supported sources.",
+  },
+  {
+    number: "02",
+    title: "Structure the data",
+    text: "Extract timestamps, services, levels, identifiers, events, and meaningful patterns.",
+  },
+  {
+    number: "03",
+    title: "Correlate activity",
+    text: "Group related events and highlight sequences that may point to a fault or unusual behavior.",
+  },
+  {
+    number: "04",
+    title: "Surface useful findings",
+    text: "Present a cleaner summary, likely problem areas, and relevant evidence for investigation.",
+  },
+];
+
+const valuePoints = [
+  "Reduce time spent manually scanning raw logs",
+  "Highlight meaningful events and repeated failure patterns",
+  "Make technical investigation easier to explain and share",
+  "Support faster initial triage during complex incidents",
+  "Create a foundation for future AI-assisted troubleshooting",
+  "Keep engineers in control of the final technical judgment",
+];
+---
+
+<BaseLayout
+  title="Log Parser | Surya Lenka"
+  description="Log Parser is a technical troubleshooting concept focused on making complex logs easier to understand, correlate, and use during issue investigation."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Project · Technical Troubleshooting</p>
+      <h1>Log Parser: turning complex technical logs into useful investigation signals.</h1>
+      <p class="intro">
+        Log Parser is a troubleshooting concept focused on helping engineers
+        interpret large technical logs faster by extracting useful patterns,
+        grouping related events, and reducing the noise around an investigation.
+      </p>
+
+      <div class="project-meta">
+        <span>Log Analysis</span>
+        <span>Troubleshooting</span>
+        <span>Technical Automation</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="challenge-section">
+    <div class="shell">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">The challenge</p>
+          <h2>Important technical signals are often hidden inside large volumes of raw data.</h2>
+        </div>
+
+        <p>
+          During an incident, engineers may need to inspect thousands of log
+          lines across different systems before they can identify where the
+          problem began and what evidence matters most.
+        </p>
+      </div>
+
+      <div class="challenge-grid">
+        {challenges.map((challenge, index) => (
+          <article class="challenge-card">
+            <span>0{index + 1}</span>
+            <h3>{challenge.title}</h3>
+            <p>{challenge.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="workflow-section">
+    <div class="shell">
+      <div class="workflow-heading">
+        <p class="section-label">High-level workflow</p>
+        <h2>From raw technical output to clearer troubleshooting direction.</h2>
+      </div>
+
+      <div class="workflow-grid">
+        {workflow.map((step) => (
+          <article class="workflow-card">
+            <span>{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="approach-section">
+    <div class="shell approach-layout">
+      <div>
+        <p class="section-label">Design principle</p>
+        <h2>Help engineers investigate faster without replacing engineering judgment.</h2>
+        <p>
+          The purpose is not to declare a root cause automatically. It is to
+          reduce repetitive analysis, highlight useful evidence, and help the
+          engineer start from a stronger position.
+        </p>
+      </div>
+
+      <div class="capability-list">
+        <div>
+          <strong>Pattern detection</strong>
+          <span>Identify recurring errors, warning clusters, and meaningful event sequences.</span>
+        </div>
+
+        <div>
+          <strong>Time-based correlation</strong>
+          <span>Connect related events across a timeline to understand what happened first and what followed.</span>
+        </div>
+
+        <div>
+          <strong>Component awareness</strong>
+          <span>Group events by service, module, source, or technical area to narrow the investigation scope.</span>
+        </div>
+
+        <div>
+          <strong>Future AI support</strong>
+          <span>Create a foundation for AI-assisted summaries, explanations, and guided technical investigation.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="value-section">
+    <div class="shell value-layout">
+      <div>
+        <p class="section-label">Expected value</p>
+        <h2>Make the first stage of troubleshooting more focused and efficient.</h2>
+      </div>
+
+      <div class="value-list">
+        {valuePoints.map((point) => (
+          <div>
+            <span>✓</span>
+            <p>{point}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="next-section">
+    <div class="shell next-card">
+      <div>
+        <p class="section-label">Explore another project</p>
+        <h2>Innovation & Vibeathon</h2>
+        <p>
+          See how applied AI and customer-support ideas were explored through
+          innovation work and practical prototypes.
+        </p>
+      </div>
+
+      <a href="/projects/innovation/">Explore Innovation & Vibeathon →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .shell {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .page-hero {
+    padding: 92px 0 72px;
+    background:
+      radial-gradient(circle at 84% 16%, rgba(196, 230, 208, 0.72), transparent 24rem),
+      var(--page-bg);
+  }
+
+  .eyebrow,
+  .section-label {
+    margin: 0;
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    max-width: 980px;
+    margin: 16px 0 22px;
+    font-size: clamp(2.7rem, 5.5vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+  }
+
+  .intro {
+    max-width: 800px;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 28px;
+  }
+
+  .project-meta span {
+    padding: 8px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: #395444;
+    background: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 750;
+  }
+
+  .challenge-section,
+  .workflow-section,
+  .approach-section,
+  .value-section,
+  .next-section {
+    padding: 84px 0;
+  }
+
+  .challenge-section,
+  .approach-section,
+  .next-section {
+    background: #ffffff;
+  }
+
+  .workflow-section {
+    background: var(--page-bg);
+  }
+
+  .value-section {
+    color: #ffffff;
+    background: #18281f;
+  }
+
+  .section-heading,
+  .approach-layout,
+  .value-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.65fr);
+    gap: 64px;
+    align-items: start;
+  }
+
+  .section-heading {
+    align-items: end;
+    margin-bottom: 40px;
+  }
+
+  .section-heading h2,
+  .workflow-heading h2,
+  .approach-layout h2,
+  .value-layout h2,
+  .next-card h2 {
+    margin: 10px 0 0;
+    font-size: clamp(2rem, 3.8vw, 3.1rem);
+    line-height: 1.12;
+    letter-spacing: -0.05em;
+  }
+
+  .section-heading > p,
+  .approach-layout > div > p:not(.section-label) {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .approach-layout > div > p:not(.section-label) {
+    margin-top: 18px;
+    max-width: 560px;
+  }
+
+  .challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .challenge-card,
+  .workflow-card {
+    padding: 27px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--page-bg);
+  }
+
+  .challenge-card {
+    min-height: 225px;
+  }
+
+  .challenge-card > span,
+  .workflow-card > span {
+    color: var(--green);
+    font-family: "DM Mono", monospace;
+    font-size: 0.76rem;
+  }
+
+  .challenge-card h3,
+  .workflow-card h3 {
+    margin: 24px 0 10px;
+    font-size: 1.18rem;
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+  }
+
+  .challenge-card p,
+  .workflow-card p {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 0.91rem;
+  }
+
+  .workflow-heading {
+    max-width: 780px;
+    margin-bottom: 38px;
+  }
+
+  .workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  .workflow-card {
+    min-height: 250px;
+    background: #ffffff;
+  }
+
+  .capability-list {
+    display: grid;
+    gap: 0;
+  }
+
+  .capability-list div {
+    padding: 17px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .capability-list strong,
+  .capability-list span {
+    display: block;
+  }
+
+  .capability-list strong {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+  }
+
+  .capability-list span {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .value-section .section-label {
+    color: #a7d8bb;
+  }
+
+  .value-list {
+    display: grid;
+    gap: 13px;
+  }
+
+  .value-list div {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .value-list span {
+    color: #a7d8bb;
+    font-weight: 800;
+  }
+
+  .value-list p {
+    margin: 0;
+    color: #d8e3db;
+    font-size: 0.93rem;
+  }
+
+  .next-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 28px;
+    padding: 38px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--page-bg);
+  }
+
+  .next-card h2 {
+    font-size: 2rem;
+  }
+
+  .next-card p:not(.section-label) {
+    max-width: 650px;
+    margin: 14px 0 0;
+    color: var(--muted);
+  }
+
+  .next-card a {
+    flex: 0 0 auto;
+    padding: 13px 17px;
+    border-radius: 9px;
+    color: #ffffff;
+    background: var(--green-dark);
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .next-card a:hover {
+    background: var(--green);
+  }
+
+  @media (max-width: 900px) {
+    .section-heading,
+    .approach-layout,
+    .value-layout {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .challenge-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .workflow-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 620px) {
+    .workflow-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .next-card {
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 26px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .shell {
+      width: min(100% - 28px, 1120px);
+    }
+
+    .page-hero,
+    .challenge-section,
+    .workflow-section,
+    .approach-section,
+    .value-section,
+    .next-section {
+      padding: 64px 0;
+    }
+  }
+</style>
