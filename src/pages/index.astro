@@ -75,27 +75,33 @@ const projects = [
         </div>
       </div>
 
-      <aside class="hero-panel" aria-label="Professional summary">
-        <p class="panel-label">Current focus</p>
-        <h2>Team Lead, MCX & CloudLink</h2>
+      <div class="hero-side">
+        <a class="resume-button" href="/resume/">
+          <span>View Resume</span>
+        </a>
 
-        <div class="panel-line"></div>
+        <aside class="hero-panel" aria-label="Professional summary">
+          <p class="panel-label">Current focus</p>
+          <h2>Team Lead, MCX & CloudLink</h2>
 
-        <div class="panel-item">
-          <strong>20 years</strong>
-          <span>Unified Communications & Contact Center experience</span>
-        </div>
+          <div class="panel-line"></div>
 
-        <div class="panel-item">
-          <strong>HCL · Avaya · Mitel</strong>
-          <span>Enterprise communication technology experience</span>
-        </div>
+          <div class="panel-item">
+            <strong>20 years</strong>
+            <span>Unified Communications & Contact Center experience</span>
+          </div>
 
-        <div class="panel-item">
-          <strong>Architecture · SIP · IVR · AI</strong>
-          <span>Core technical and innovation areas</span>
-        </div>
-      </aside>
+          <div class="panel-item">
+            <strong>HCL · Avaya · Mitel</strong>
+            <span>Enterprise communication technology experience</span>
+          </div>
+
+          <div class="panel-item">
+            <strong>Architecture · SIP · IVR · AI</strong>
+            <span>Core technical and innovation areas</span>
+          </div>
+        </aside>
+      </div>
     </div>
   </section>
 
@@ -199,6 +205,12 @@ const projects = [
     align-items: center;
   }
 
+  .hero-side {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
   .eyebrow,
   .section-label,
   .panel-label,
@@ -287,6 +299,28 @@ const projects = [
     border-color: var(--green);
     color: var(--green);
   }
+
+.resume-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 62px;
+  width: 100%;
+  padding: 0 20px;
+  border-radius: 9px;
+  color: #ffffff;
+  background: var(--green-dark);
+  font-size: 1rem;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.resume-button:hover {
+  transform: translateY(-2px);
+  background: var(--green);
+}
 
   .hero-panel {
     padding: 30px;
@@ -501,7 +535,7 @@ const projects = [
       gap: 42px;
     }
 
-    .hero-panel {
+    .hero-side {
       max-width: 640px;
     }
 
